@@ -1,0 +1,6 @@
+a.txt
+main
+main.c
+makefile
+mathc.c
+mathc.h

@@ -1,0 +1,166 @@
+=======================================================
+=======================================================
+
+your name is huynh sam ha
+
+=======================================================
+=======================================================
+
+System Information
+-------------------------------------------------------
+=======================================================
+
+Kernel name		: Linux
+Kernel release		: 4.13.0-26-generic
+Kernel version		: #29~16.04.2-Ubuntu SMP Tue Jan 9 22:00:44 UTC 2018
+Machine			: x86_64
+Processor		: x86_64
+Hardware		: x86_64
+Operator 		: GNU/Linux
+
+-------------------------------------------------------
+
+
+Current user: huynhsamha
+-------------------------------------------------------
+
+Current time: Thứ tư, 17 Tháng một năm 2018 19:57:40 +07
+-------------------------------------------------------
+
+=======================================================
+
+Memory:
+-------------------------------------------------------
+
+              total        used        free      shared  buff/cache   available
+Mem:        8057444     1306004     4876112      277656     1875328     6114228
+Swap:      15999996           0    15999996
+=======================================================
+
+Disk space:
+-------------------------------------------------------
+
+Filesystem      Size  Used Avail Use% Mounted on
+udev            3,9G     0  3,9G   0% /dev
+tmpfs           787M  9,6M  778M   2% /run
+/dev/sda9        54G   18G   34G  34% /
+tmpfs           3,9G   11M  3,9G   1% /dev/shm
+tmpfs           5,0M  4,0K  5,0M   1% /run/lock
+tmpfs           3,9G     0  3,9G   0% /sys/fs/cgroup
+/dev/loop0       84M   84M     0 100% /snap/core/3748
+/dev/loop1       16M   16M     0 100% /snap/heroku/1527
+/dev/sda2        96M   29M   68M  30% /boot/efi
+tmpfs           787M   76K  787M   1% /run/user/1000
+=======================================================
+
+Network:
+-------------------------------------------------------
+
+enp2s0    Link encap:Ethernet  HWaddr 98:e7:f4:12:5d:fd  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:37241 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:37241 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:3178789 (3.1 MB)  TX bytes:3178789 (3.1 MB)
+
+wlo1      Link encap:Ethernet  HWaddr 54:8c:a0:bc:04:a9  
+          inet addr:192.168.1.2  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::f332:3b80:7ae7:2176/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:55076 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:38017 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:33588054 (33.5 MB)  TX bytes:8016655 (8.0 MB)
+
+=======================================================
+
+Hardware information-------------------------------------------------------
+
+H/W path       Device      Class          Description
+=====================================================
+                           system         HP Notebook (X3B65PA#UUF)
+/0                         bus            81EC
+/0/0                       memory         128KiB BIOS
+/0/4                       processor      Intel(R) Core(TM) i7-6500U CPU @ 2.50GHz
+/0/4/6                     memory         64KiB L1 cache
+/0/4/7                     memory         512KiB L2 cache
+/0/4/8                     memory         4MiB L3 cache
+/0/5                       memory         64KiB L1 cache
+/0/28                      memory         8GiB System Memory
+/0/28/0                    memory         8GiB SODIMM Synchronous 2133 MHz (0,5 ns)
+/0/28/1                    memory         SODIMM DDR Synchronous 2133 MHz (0,5 ns) [empty]
+/0/100                     bridge         Xeon E3-1200 v5/E3-1500 v5/6th Gen Core Processor Host Bridge/DRAM Registers
+/0/100/2                   display        Skylake GT2 [HD Graphics 520]
+/0/100/4                   generic        Xeon E3-1200 v5/E3-1500 v5/6th Gen Core Processor Thermal Subsystem
+/0/100/14                  bus            Sunrise Point-LP USB 3.0 xHCI Controller
+/0/100/14/0    usb1        bus            xHCI Host Controller
+/0/100/14/0/3              input          USB Optical Mouse
+/0/100/14/0/4              communication  Bluetooth Radio
+/0/100/14/0/5              multimedia     HP TrueVision HD
+/0/100/14/1    usb2        bus            xHCI Host Controller
+/0/100/14.2                generic        Sunrise Point-LP Thermal subsystem
+/0/100/16                  communication  Sunrise Point-LP CSME HECI #1
+/0/100/17                  storage        Sunrise Point-LP SATA Controller [AHCI mode]
+/0/100/1c                  bridge         Sunrise Point-LP PCI Express Root Port #1
+/0/100/1c/0                display        Topaz XT [Radeon R7 M260/M265 / M340/M360 / M440/M445]
+/0/100/1c.4                bridge         Sunrise Point-LP PCI Express Root Port #5
+/0/100/1c.4/0  enp2s0      network        RTL810xE PCI Express Fast Ethernet controller
+/0/100/1c.5                bridge         Sunrise Point-LP PCI Express Root Port #6
+/0/100/1c.5/0  wlo1        network        RTL8723BE PCIe Wireless Network Adapter
+/0/100/1f                  bridge         Sunrise Point-LP LPC Controller
+/0/100/1f.2                memory         Memory controller
+/0/100/1f.3                multimedia     Sunrise Point-LP HD Audio
+/0/100/1f.4                bus            Sunrise Point-LP SMBus
+/0/1           scsi0       storage        
+/0/1/0.0.0     /dev/sda    disk           1TB TOSHIBA MQ01ABD1
+/0/1/0.0.0/1   /dev/sda1   volume         299MiB Windows NTFS volume
+/0/1/0.0.0/2   /dev/sda2   volume         99MiB Windows FAT volume
+/0/1/0.0.0/3   /dev/sda3   volume         127MiB reserved partition
+/0/1/0.0.0/4   /dev/sda4   volume         291GiB Windows NTFS volume
+/0/1/0.0.0/5   /dev/sda5   volume         897MiB Windows NTFS volume
+/0/1/0.0.0/6   /dev/sda6   volume         345GiB Windows NTFS volume
+/0/1/0.0.0/7   /dev/sda7   volume         222GiB Windows NTFS volume
+/0/1/0.0.0/8   /dev/sda8   volume         15GiB Linux swap volume
+/0/1/0.0.0/9   /dev/sda9   volume         54GiB EXT4 volume
+/0/2           scsi1       storage        
+/0/2/0.0.0     /dev/cdrom  disk           DVDRW GUD1N
+/1                         power          HS04041
+/2                         power          OEM Define 5
+=======================================================
+
+CPU information-------------------------------------------------------
+
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                4
+On-line CPU(s) list:   0-3
+Thread(s) per core:    2
+Core(s) per socket:    2
+Socket(s):             1
+NUMA node(s):          1
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 78
+Model name:            Intel(R) Core(TM) i7-6500U CPU @ 2.50GHz
+Stepping:              3
+CPU MHz:               2600.000
+CPU max MHz:           3100,0000
+CPU min MHz:           400,0000
+BogoMIPS:              5184.00
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              4096K
+NUMA node0 CPU(s):     0-3
+Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti intel_pt tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp

@@ -1,0 +1,52 @@
+.PHONY: all, install, clean
+
+TARGET = app
+
+CC = gcc
+CXX = g++
+
+HEADERS += \
+	sum.h \
+	max.h
+
+CSRC +=
+
+CPPSRCS += \
+	main.cpp \
+	sum.cpp \
+	max.cpp
+
+OBJSDIR = ./build
+
+OBJS := $(patsubst %.c, $(OBJSDIR)/%.o, $(CSRCS))
+OBJS += $(patsubst %.cpp, $(OBJSDIR)/%.o, $(CPPSRCS))
+
+CFLAGS = -I./include
+CXXFLAGS = -I./include
+
+
+$(TARGET): $(OBJS)
+	@echo "[LINK] $@"
+	@$(CXX) -o $@ $(OBJS)
+
+
+$(OBJSDIR)/%.o: %.cpp $(HEADERS)
+	@echo "[CC] $@"
+	@mkdir $@
+	@$(CC) -c -o $@ $< $(CFLAGS)
+
+$(OBJSDIR)/%.o: %.cpp $(HEADERS)
+	@echo "[CXX] $@"
+	@mkdir -p $(OBJSDIR)
+	@$(CXX) -c -o $@ $< $(CXXFLAGS)
+
+
+
+all: $(TARGET)
+
+install:
+	cp -rf $(TARGET) /usr/local/bin
+
+clean:
+	rm -rf $(OBJSDIR)
+	rm -rf $(TARGET)
