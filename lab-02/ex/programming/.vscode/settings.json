@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "findsubstr.h": "c",
+        "readline.h": "c",
+        "string.h": "c"
+    }
+}

@@ -1,0 +1,5 @@
+let fn = (a, b) => {
+	let s = a + b;
+	let t = a - b;
+	return s * t + (s-t)*(s+t-1);
+}
