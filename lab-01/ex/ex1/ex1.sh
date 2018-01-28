@@ -55,11 +55,6 @@ echo -e "Network:\n$hr"
 ifconfig
 
 echo -e $br
-echo -e "Hardware information$hr"
-sudo lshw -short
-
-
-echo -e $br
 echo -e "CPU information$hr"
 lscpu
 }

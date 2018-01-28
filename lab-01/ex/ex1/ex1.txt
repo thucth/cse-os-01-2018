@@ -1,7 +1,7 @@
 =======================================================
 =======================================================
 
-your name is huynh sam ha
+your name is Huynh Sam Ha
 
 =======================================================
 =======================================================
@@ -24,7 +24,7 @@ Operator 		: GNU/Linux
 Current user: huynhsamha
 -------------------------------------------------------
 
-Current time: Thứ tư, 17 Tháng một năm 2018 19:57:40 +07
+Current time: Thứ bảy, 27 Tháng một năm 2018 19:27:16 +07
 -------------------------------------------------------
 
 =======================================================
@@ -33,7 +33,7 @@ Memory:
 -------------------------------------------------------
 
               total        used        free      shared  buff/cache   available
-Mem:        8057444     1306004     4876112      277656     1875328     6114228
+Mem:        8057444     1968712     3313696      953132     2775036     4766984
 Swap:      15999996           0    15999996
 =======================================================
 
@@ -42,15 +42,17 @@ Disk space:
 
 Filesystem      Size  Used Avail Use% Mounted on
 udev            3,9G     0  3,9G   0% /dev
-tmpfs           787M  9,6M  778M   2% /run
-/dev/sda9        54G   18G   34G  34% /
-tmpfs           3,9G   11M  3,9G   1% /dev/shm
+tmpfs           787M  9,7M  778M   2% /run
+/dev/sda9        54G   29G   23G  56% /
+tmpfs           3,9G  627M  3,3G  16% /dev/shm
 tmpfs           5,0M  4,0K  5,0M   1% /run/lock
 tmpfs           3,9G     0  3,9G   0% /sys/fs/cgroup
-/dev/loop0       84M   84M     0 100% /snap/core/3748
-/dev/loop1       16M   16M     0 100% /snap/heroku/1527
+/dev/loop0       16M   16M     0 100% /snap/heroku/1527
+/dev/loop1       84M   84M     0 100% /snap/core/3748
+/dev/loop2       82M   82M     0 100% /snap/core/3887
 /dev/sda2        96M   29M   68M  30% /boot/efi
-tmpfs           787M   76K  787M   1% /run/user/1000
+tmpfs           787M     0  787M   0% /run/user/1001
+tmpfs           787M   92K  787M   1% /run/user/1000
 =======================================================
 
 Network:
@@ -67,74 +69,20 @@ lo        Link encap:Local Loopback
           inet addr:127.0.0.1  Mask:255.0.0.0
           inet6 addr: ::1/128 Scope:Host
           UP LOOPBACK RUNNING  MTU:65536  Metric:1
-          RX packets:37241 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:37241 errors:0 dropped:0 overruns:0 carrier:0
+          RX packets:2490 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2490 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000 
-          RX bytes:3178789 (3.1 MB)  TX bytes:3178789 (3.1 MB)
+          RX bytes:269961 (269.9 KB)  TX bytes:269961 (269.9 KB)
 
 wlo1      Link encap:Ethernet  HWaddr 54:8c:a0:bc:04:a9  
-          inet addr:192.168.1.2  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet addr:192.168.1.11  Bcast:192.168.1.255  Mask:255.255.255.0
           inet6 addr: fe80::f332:3b80:7ae7:2176/64 Scope:Link
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:55076 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:38017 errors:0 dropped:0 overruns:0 carrier:0
+          RX packets:13309 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:11148 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000 
-          RX bytes:33588054 (33.5 MB)  TX bytes:8016655 (8.0 MB)
+          RX bytes:15118192 (15.1 MB)  TX bytes:1927131 (1.9 MB)
 
-=======================================================
-
-Hardware information-------------------------------------------------------
-
-H/W path       Device      Class          Description
-=====================================================
-                           system         HP Notebook (X3B65PA#UUF)
-/0                         bus            81EC
-/0/0                       memory         128KiB BIOS
-/0/4                       processor      Intel(R) Core(TM) i7-6500U CPU @ 2.50GHz
-/0/4/6                     memory         64KiB L1 cache
-/0/4/7                     memory         512KiB L2 cache
-/0/4/8                     memory         4MiB L3 cache
-/0/5                       memory         64KiB L1 cache
-/0/28                      memory         8GiB System Memory
-/0/28/0                    memory         8GiB SODIMM Synchronous 2133 MHz (0,5 ns)
-/0/28/1                    memory         SODIMM DDR Synchronous 2133 MHz (0,5 ns) [empty]
-/0/100                     bridge         Xeon E3-1200 v5/E3-1500 v5/6th Gen Core Processor Host Bridge/DRAM Registers
-/0/100/2                   display        Skylake GT2 [HD Graphics 520]
-/0/100/4                   generic        Xeon E3-1200 v5/E3-1500 v5/6th Gen Core Processor Thermal Subsystem
-/0/100/14                  bus            Sunrise Point-LP USB 3.0 xHCI Controller
-/0/100/14/0    usb1        bus            xHCI Host Controller
-/0/100/14/0/3              input          USB Optical Mouse
-/0/100/14/0/4              communication  Bluetooth Radio
-/0/100/14/0/5              multimedia     HP TrueVision HD
-/0/100/14/1    usb2        bus            xHCI Host Controller
-/0/100/14.2                generic        Sunrise Point-LP Thermal subsystem
-/0/100/16                  communication  Sunrise Point-LP CSME HECI #1
-/0/100/17                  storage        Sunrise Point-LP SATA Controller [AHCI mode]
-/0/100/1c                  bridge         Sunrise Point-LP PCI Express Root Port #1
-/0/100/1c/0                display        Topaz XT [Radeon R7 M260/M265 / M340/M360 / M440/M445]
-/0/100/1c.4                bridge         Sunrise Point-LP PCI Express Root Port #5
-/0/100/1c.4/0  enp2s0      network        RTL810xE PCI Express Fast Ethernet controller
-/0/100/1c.5                bridge         Sunrise Point-LP PCI Express Root Port #6
-/0/100/1c.5/0  wlo1        network        RTL8723BE PCIe Wireless Network Adapter
-/0/100/1f                  bridge         Sunrise Point-LP LPC Controller
-/0/100/1f.2                memory         Memory controller
-/0/100/1f.3                multimedia     Sunrise Point-LP HD Audio
-/0/100/1f.4                bus            Sunrise Point-LP SMBus
-/0/1           scsi0       storage        
-/0/1/0.0.0     /dev/sda    disk           1TB TOSHIBA MQ01ABD1
-/0/1/0.0.0/1   /dev/sda1   volume         299MiB Windows NTFS volume
-/0/1/0.0.0/2   /dev/sda2   volume         99MiB Windows FAT volume
-/0/1/0.0.0/3   /dev/sda3   volume         127MiB reserved partition
-/0/1/0.0.0/4   /dev/sda4   volume         291GiB Windows NTFS volume
-/0/1/0.0.0/5   /dev/sda5   volume         897MiB Windows NTFS volume
-/0/1/0.0.0/6   /dev/sda6   volume         345GiB Windows NTFS volume
-/0/1/0.0.0/7   /dev/sda7   volume         222GiB Windows NTFS volume
-/0/1/0.0.0/8   /dev/sda8   volume         15GiB Linux swap volume
-/0/1/0.0.0/9   /dev/sda9   volume         54GiB EXT4 volume
-/0/2           scsi1       storage        
-/0/2/0.0.0     /dev/cdrom  disk           DVDRW GUD1N
-/1                         power          HS04041
-/2                         power          OEM Define 5
 =======================================================
 
 CPU information-------------------------------------------------------

@@ -1,0 +1,5 @@
+1. Do tại lần đầu tiên biên dịch, ta phải compile ra các file object trước, sau đó mới liên kết lại thành file thực thi, hoặc trực tiếp biên dịch các file trên thành file thực thi. Tuy nhiên ở lần thứ hai, ta đã có sẵn các file object, chỉ một số file object phụ thuộc bị thay đổi, do đó ta chỉ cần compile các file object này, và sau cùng là liên kết các file này lại để tạo file thực thi nói trên, do đó ta không cần biên dịch lại hết các file như ở lần đầu, vì thế sẽ nhanh hơn.
+
+2. Makefile vẫn có đối với một số ngôn ngữ khác: Python, Java, 	Latex, Golang, ...
+
+3. Ta định nghĩa một biến path chứa đường dẫn (tương đối hoặc tuyệt đối) tới thư mục chứa source. Sau đó ta addprefix cho các file cần thực thi, hay sử dụng với biến $(path) nói trên, cuối cùng sử dụng các biến mới này để thực hiện makefile như bình thường.
