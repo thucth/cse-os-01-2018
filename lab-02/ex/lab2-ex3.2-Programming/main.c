@@ -1,43 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-// #include "findsubstr.h"
-// #include "readline.h"
+#include "findsubstr.h"
+#include "readline.h"
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     // printf("%d\n", argc);
     // for (int i=0;i<argc;i++) printf("%s\n", argv[i]);
 
-    // int t = find_sub_string('he he he', 'h');
-    // printf("$d\n", t);
+    // int pos = find_sub_string("import React from 'react';", "react");
+    // printf("%d\n", pos);
 
-    // if (argc == 1) {
-    //     puts("File not found");
-    //     return 1;
-    // }
 
-    // char * fileName = argv[1];
-    
-    char * fileName = "inp.inp";
-    
-    FILE * fp;
-    char * line = NULL;
-    size_t len = 0;
-    ssize_t read;
+    char * grep;
+    if (argc == 1) puts("Not have grep");
+    else strcpy(grep, argv[1]);
 
-    fp = fopen(fileName, "r");
-    
-    if (fp == NULL) {
-        puts("File not found");
-        return 0;
+    // printf("%s\n", grep);
+
+    int bufsize = 1024;
+    int lines = 0, cnt = 0;
+
+    // char *s = "asdfasdf";
+    // printf("%s\n", s);
+
+    for (;;) {
+        char * str = (char *)malloc(bufsize * sizeof(char));
+        cnt = read_line(str);
+        if (cnt < 0) break;
+        // printf("Line %2d + Size: %3d + Content:%s", ++lines, cnt, str);
+        int pos = find_sub_string(str, grep);
+        // printf("%d\n", pos);
+        if (pos > -1) {
+            // printf("*Match*: position match: %3d\n", pos);
+            printf("%s", str);
+        }
     }
-
-    while ((read = getline(&line, &len, fp)) != -1) {
-        printf("Retrieved line of length %zu :\n", read);
-        printf("%s", line);
-    }
-
-    fclose(fp);
+    puts("\n");
 
     return 0;
 }

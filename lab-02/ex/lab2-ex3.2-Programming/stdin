@@ -1,0 +1,123 @@
+Học React/Redux qua ví dụ thực tế: Redux
+Redux được mô tả như là một predictable state container cho application. 
+Phần lớn các bạn thường thấy Redux được đi một cặp với ReactJS ở client side application. 
+Thực tế, Redux còn hơn thế, giống như Javascript đã lấn sân sang server side với NodeJS hay dùng trong việc phát triển IoT application, Redux có thể được sử dụng ở bất cứ nơi đâu cần một predictable state container.
+Bạn phải hiểu và nắm bắt được vấn đề mà nó giải quyết, thì mới nên sử dụng nó.
+
+Nào cùng bắt đầu tìm hiểu Redux thôi.
+
+Cách mà Redux làm việc
+Nói một cách đơn giản, bạn sẽ trigger một action trong component, nó có thể là một button, 
+một text field, hay blabla… sẽ có một thành phần khác listen đến cái action mà bạn vừa trigger, 
+sử dụng payload mà action đó trả về, sinh ra một global state mới từ payload đó sau đó trả ngược lại 
+cho component để nó thực hiện nhiệm vụ render lại nếu cái global state đó có thay đổi so với global state
+trước đó. Khi component được render xong thì lúc đó chu trình coi như hoàn tất.
+
+Lý thuyết thế đủ rồi, còn chờ gì nữa mà không bắt tay vào implement nhỉ!
+
+Từ folder của project các bạn cài đặt như sau.
+
+npm install --save redux redux-logger
+
+Dispatch action
+Bây giời chúng ta sẽ tạo action đầu tiên. Mở file src/index.js lên.
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import TrackList from './components/TrackList';
+import {configureStore} from './store';
+import * as actions from './actions';
+
+const tracks = [
+  {
+    id: 1,
+    title: 'Em của ngày hôm qua'
+  },
+  {
+    id: 2,
+    title: 'Cơn mưa ngang qua'
+  }
+];
+
+const store = configureStore();
+store.dispatch(actions.setTracks(tracks));
+
+ReactDOM.render(
+  <TrackList />,
+  document.getElementById('app')
+);
+
+Như các bạn có thể thấy, chúng ta cài đặt một store object bằng function configureStore, 
+chúng ta chưa vội implement nó lúc này. Hãy tìm hiểu store là gì trước đã. 
+Store là một singleton object trong Redux, và giữ vai trò như là global state object. 
+Hơn thế nữa, nó có khả năng sử dụng một số API để dispatch một action, lấy được trạng thái của store hay notify nếu store có sử thay đổi.
+
+Trong trường hợp này, chúng ta đang dispatch action với payload là list track đã được hard code. 
+Và vì thế chúng ta sẽ không cần phải pass tracks vào trong component như trước nữa, 
+chúng đã không còn thuộc về nhau anymore. Haha.
+
+Tiếp theo sẽ làm gì đây nhỉ? Suy nghĩ nào, chúng ta sẽ implement function configureStore để sinh ra store object hay chúng ta sẽ bắt đầu xem phần dispatch action. 
+Tôi nghĩ là chúng ta sẽ tiếp tục với việc giải thích về action và action creator, tìm hiểu về reducer, cái mà sẽ giải quyết global state khi nhận được payload từ action, rồi cuối cùng mới quay lại việc setup store. 
+Các bạn thấy thế nào? Nói vậy thôi chứ khi các bạn đọc đường những dòng này thì gạo đã được nấu thành cơm rồi, nên khỏi ý kiến nhé!
+
+Action Types
+Chúng ta cần một file để chứa constant, những constant đầu tiên sẽ là những constant để giải quyết việc xác định action nào. Những constant này sẽ được sử dụng bởi cả reducer và action.
+
+Tạo file src/core/constants.js.
+
+export const ActionTypes = {
+  TRACKS_SET: 'TRACKS_SET'
+}
+
+Action Creators
+Bây giờ chúng ta sẽ tìm hiểu về action creator. Action creator sẽ trả về một object với type và payload. 
+Type là một trong số những constant ActionTypes mà chúng ta đã tạo ở trên. Payload có thể là bất cứ thứ gì, nó sẽ được sử dụng để thay đổi global state của application.
+
+Có nhiều cách để structure một React/Redux application, trong bài này tôi sẽ dùng cách đơn giản nhất, chắc chắn sau series này, chúng ta sẽ có thêm một vài bài để refactor cũng như structure lại cho code base đẹp hơn.
+
+Tạo src/actions/tracks.js.
+
+import {ActionTypes} from '../core/constants';
+
+export function setTracks(tracks) {
+  return {
+    type: ActionTypes.TRACKS_SET,
+    tracks
+  };
+};
+
+Action creator đầu tiên của chúng ta sẽ nhận vào input là list tracks, cái mà chúng ta sẽ set vào global state. Action creator này sẽ trả về một object chứa action type và payload là list mà chúng ta đã truyền vào.
+
+Để giữ cho folder structure gọn gàng, mặc dù là cách cơ bản nhưng chúng ta cũng nên tạo một file index.js trong folder actions để chứa tất cả các action creator như sau.
+
+import {setTracks} from './track';
+
+export {
+  setTracks
+};
+
+Trong file này chúng ta sẽ bundle tất cả các action creator mà chúng ta có và export chúng ra như là một public interface cho các phần còn lại sử dụng.
+
+Sau khi dispatch action và implement action creator, chúng ta phải implement thứ mà ai cũng biết là thứ gì, nó làm nhiệm vụ canh chừng nếu có bất cứ action nào được gọi và update global state.
+Nó được gọi là reducer, bởi vì sao nó lại được gọi như vậy? Nói một cách đơn giản nó nhận vào type và payload action trả về, và từ đó biến state cũ thành state mới. 
+Lưu ý rằng thay vì thay đổi state trước đó thì chúng ta sẽ trả về một object state mới, state là immutable.
+State trong redux phải là immutable. Bạn sẽ không thể thay đổi state mà phải trả về một object state mới, việc này nhằm mục đích tránh những side effect trong application, chúng ta sẽ nói sâu hơn về vấn đề tại sao state lại phải là immutable trong một bài khác, vì nó vượt qua khuôn khổ mà chúng ta muốn biết trong bài này.
+Nào cùng tạo reducer. Tạo file src/reducers/track.js.
+
+import {ActionTypes} from '../core/constants';
+
+const initialState = [];
+
+export default function(state = initialState, action) {
+  switch (action.type) {
+    case ActionTypes.TRACKS_SET:
+      return setTracks(state, action);
+  }
+
+  return state;
+}
+
+function setTracks(state, action) {
+  const {tracks} = action;
+  return [...state, ...tracks];
+}
