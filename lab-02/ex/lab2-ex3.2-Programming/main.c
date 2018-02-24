@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
             printf("%s", str);
         }
     }
-    puts("\n");
+    // puts("\n");
 
     return 0;
 }

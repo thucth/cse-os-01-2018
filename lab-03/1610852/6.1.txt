@@ -1,0 +1,5 @@
+1. PARENT: value=5
+
+
+2. Only the shared memory segments are shared between the parent process and the newly forked child process. 
+Copies of the stack and the heap are made for the newly created process.
