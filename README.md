@@ -1,2 +1,2 @@
-# CSE_OS_01_2018
+# cse-os-01-2018
 Operating Systems (HCMUT)
