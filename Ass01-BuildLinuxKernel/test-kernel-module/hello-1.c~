@@ -8,7 +8,7 @@
 struct pid *pid_struct;
 struct task_struct *task;
 struct sched_info si;
-static int pid = 1; 	
+static int pid = 1231; 	
 
 static int __init procsched_init(void)
 {
