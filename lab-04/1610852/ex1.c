@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <inttypes.h>
-#include <sys/types.h>
-#include <unistd.h>
+#include "ex1.h"
 
 #define ERROR_ON_SBRK (void*)-1
 
@@ -58,6 +53,10 @@ void * aligned_malloc(unsigned int size, unsigned int align) {
 }
 
 void * aligned_free(void * ptr) {
+
+    if (ptr == NULL) {
+        return NULL;
+    }
     
     // retrive info block (size and offset)
     int * info = ptr-1;
@@ -81,27 +80,6 @@ void * aligned_free(void * ptr) {
     printf("size   = %d\n", size);
     printf("current: %p %d\n", p_cur, cur);
     printf("end    : %p %d\n", p_end, end);
-}
 
-int power(int x, int m) {
-    if (m == 0) return 1;
-    int tmp = power(x, m/2);
-    if (m % 2 == 0) return tmp * tmp;
-    return tmp * tmp * x; 
-}
-
-int main() {
-
-    printf("Main:\n");
-
-    int align = power(2, 15);
-    int size = 50 * sizeof(int);
-
-    // malloc array 50 int
-    int *a = (int*) aligned_malloc(size, align);
-
-    // free memory
-    aligned_free(a);
-
-    return 0;
+    return p_end;
 }
