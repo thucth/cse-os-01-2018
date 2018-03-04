@@ -1,5 +1,14 @@
-\contentsline {section}{\numberline {1}Tr\IeC {\d a}m d\IeC {\`\uhorn }ng kh\IeC {\^o}ng \IeC {\dj }\IeC {\uhorn }\IeC {\d \ohorn }c ph\IeC {\^a}n b\IeC {\'\ocircumflex } \IeC {\dj }\IeC {\`\ocircumflex }ng \IeC {\dj }\IeC {\`\ecircumflex }u d\IeC {\~\acircumflex }n \IeC {\dj }\IeC {\'\ecircumflex }n kh\IeC {\'o} kh\IeC {\u a}n trong vi\IeC {\d \ecircumflex }c b\IeC {\'\abreve }t xe bus.}{2}{section.1}
-\contentsline {section}{\numberline {2}T\IeC {\`\i }nh tr\IeC {\d a}ng k\IeC {\d e}t xe \IeC {\h \ohorn } tr\IeC {\d a}m d\IeC {\`\uhorn }ng g\IeC {\^a}y kh\IeC {\'o} kh\IeC {\u a}n cho vi\IeC {\d \ecircumflex }c b\IeC {\'\abreve }t xe, qu\IeC {\'a} t\IeC {\h a}i h\IeC {\`a}nh kh\IeC {\'a}ch tr\IeC {\^e}n xe.}{2}{section.2}
-\contentsline {section}{\numberline {3}Nhi\IeC {\`\ecircumflex }u tr\IeC {\d a}m kh\IeC {\^o}ng c\IeC {\'o} ch\IeC {\~\ocircumflex } ng\IeC {\`\ocircumflex }i, m\IeC {\'a}i che, nh\IeC {\`a} v\IeC {\d \ecircumflex } sinh c\IeC {\^o}ng c\IeC {\d \ocircumflex }ng g\IeC {\^a}y kh\IeC {\'o} kh\IeC {\u a}n cho h\IeC {\`a}nh kh\IeC {\'a}ch.}{2}{section.3}
-\contentsline {section}{\numberline {4}V\IeC {\'\acircumflex }n \IeC {\dj }\IeC {\`\ecircumflex } an ninh t\IeC {\d a}i tr\IeC {\d a}m d\IeC {\`\uhorn }ng.}{2}{section.4}
-\contentsline {section}{\numberline {5}H\IeC {\`a}nh kh\IeC {\'a}ch kh\IeC {\^o}ng bi\IeC {\'\ecircumflex }t ch\IeC {\'\i }nh x\IeC {\'a}c th\IeC {\`\ohorn }i \IeC {\dj }i\IeC {\h \ecircumflex }m xe t\IeC {\'\ohorn }i.}{2}{section.5}
+\select@language {english}
+\contentsline {section}{\numberline {1}Prepare Linux Kenel}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}QUESTION: Why we need to install kernel-package?}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}QUESTION: Why we have to use another kernel source from the server such as http://www.kernel.org, can we compile the original kernel (the local kernel on the running OS) directly?}{2}{subsection.1.2}
+\contentsline {section}{\numberline {2}System Call - procsched}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}QUESTION: What is the meaning of other parts, i.e. i386, procsched, and sys procsched?}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}QUESTION: What is the meaning of each line added in file include/linux/syscalls.h?}{2}{subsection.2.2}
+\contentsline {section}{\numberline {3}Compiling Linux Kernel}{2}{section.3}
+\contentsline {subsection}{\numberline {3.1}QUESTION: What is the meaning of these two stages, namely \IeC {\textquotedblleft }make\IeC {\textquotedblright } and \IeC {\textquotedblleft }make modules\IeC {\textquotedblright }?}{2}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}QUESTION: Why this program could indicate whether our system works or not?}{2}{subsection.3.2}
+\contentsline {section}{\numberline {4}Wrapper}{2}{section.4}
+\contentsline {subsection}{\numberline {4.1}QUESTION: Why we have to re-define proc segs struct while we have already defined it inside the kernel?}{2}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}QUESTION: Why root privilege (e.g. adding sudo before the cp command) is required to copy the header file to /usr/include?}{2}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}QUESTION: Why we must put -share and -fpic option into gcc command?}{2}{subsection.4.3}

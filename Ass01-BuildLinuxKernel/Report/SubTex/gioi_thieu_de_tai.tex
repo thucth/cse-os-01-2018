@@ -1,55 +1,42 @@
-\section{Trạm dừng không được phân bố đồng đều dẫn đến khó khăn trong việc bắt xe bus.}
+\section{Prepare Linux Kenel}
 
-Giải pháp:
+\subsection{QUESTION: Why we need to install kernel-package?}
 
-\begin{itemize}
-	\item Đặt trạm ở vị trí thuận lợi.
-	\item Thu hẹp khoảng cách giữa các trạm.
-	\item Các trạm cần có bản đồ xe bus.
-\end{itemize}
+kernel-package is utility for building Linux kernel related Debian packages. The package automate the routine steps required to compile and install a custom kernel.
 
+\noindent For more advantages, see \url{http://man.he.net/man5/kernel-package}
 
-
-
-\section{Tình trạng kẹt xe ở trạm dừng gây khó khăn cho việc bắt xe, quá tải hành khách trên xe.}
-
-Giải pháp:
-
-\begin{itemize}
-	\item Tăng cường số xe chạy trên các tuyến.
-	\item Mở rộng qui mô trạm dừng để thuận tiện cho xe ra vào trạm, hành khách đón xe dễ dàng.
-	\item Khi nhiều xe vào trạm, tài xế xe sau bị khuất tầm nhìn bởi xe trước, không biết hành khách đang chờ xe, khiến hành khách lỡ chuyến.
-	\item Xây dựng làn đường riêng cho xe bus.
-	\item Bố trí hợp lí thời gian xuất bến, cập bến các tuyến xe một cách hợp lí.
-	\item Giải tán các điểm tụ tập buôn bán tại trạm dừng.
-\end{itemize}
-
-\section{Nhiều trạm không có chỗ ngồi, mái che, nhà vệ sinh công cộng gây khó khăn cho hành khách.}
-
-Giải pháp:
-
-\begin{itemize}
-	\item Tăng không gian trạm dừng.
-	\item Xây dựng nhà chờ có điều hòa, tránh mưa nắng tốt kết hợp với nhà vệ sinh công cộng.
-\end{itemize}
-
-\section{Vấn đề an ninh tại trạm dừng.}
-
-Giải pháp:
-
-\begin{itemize}
-	\item Lập các đội bảo vệ gần trạm dừng.
-	\item Lắp đặt camera.
-\end{itemize}
+\subsection{QUESTION: Why we have to use another kernel source from the server such as http://www.kernel.org, can we compile the original kernel (the local kernel on the running OS) directly?}
 
 
 
-\section{Hành khách không biết chính xác thời điểm xe tới.}
+\section{System Call - procsched}
 
-Giải pháp:
+\subsection{QUESTION: What is the meaning of other parts, i.e. i386, procsched, and sys procsched?}
 
-\begin{itemize}
-	\item Lắp đặt bản đồ xe bus điện tử thông minh tại các trạm.
-	\item Phát triển ứng dụng bản đồ thông minh trên các thiết bị di động cho người dùng.
-	\item Lắp đặt biển báo dự kiến thời điểm xe vào trạm
-\end{itemize}
+Each system call is declared in one row with following information: number, ABI, name, entry point and compat entry point.
+
+
+\subsection{QUESTION: What is the meaning of each line added in file include/linux/syscalls.h?}
+
+
+\section{Compiling Linux Kernel}
+
+\subsection{QUESTION: What is the meaning of these two stages, namely “make” and “make modules”?}
+
+
+\subsection{QUESTION: Why this program could indicate whether our system works or not?}
+
+
+
+\section{Wrapper}
+
+\subsection{QUESTION: Why we have to re-define proc segs struct while we have already defined it inside the kernel?}
+
+
+
+\subsection{QUESTION: Why root privilege (e.g. adding sudo before the cp command) is required to copy the header file to /usr/include?}
+
+
+\subsection{QUESTION: Why we must put -share and -fpic option into gcc command?}
+
