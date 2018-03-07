@@ -1,4 +1,3 @@
-\select@language {english}
 \contentsline {section}{\numberline {1}Prepare Linux Kenel}{2}{section.1}
 \contentsline {subsection}{\numberline {1.1}QUESTION: Why we need to install kernel-package?}{2}{subsection.1.1}
 \contentsline {subsection}{\numberline {1.2}QUESTION: Why we have to use another kernel source from the server such as http://www.kernel.org, can we compile the original kernel (the local kernel on the running OS) directly?}{2}{subsection.1.2}
@@ -8,7 +7,7 @@
 \contentsline {section}{\numberline {3}Compiling Linux Kernel}{2}{section.3}
 \contentsline {subsection}{\numberline {3.1}QUESTION: What is the meaning of these two stages, namely \IeC {\textquotedblleft }make\IeC {\textquotedblright } and \IeC {\textquotedblleft }make modules\IeC {\textquotedblright }?}{2}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}QUESTION: Why this program could indicate whether our system works or not?}{2}{subsection.3.2}
-\contentsline {section}{\numberline {4}Wrapper}{2}{section.4}
-\contentsline {subsection}{\numberline {4.1}QUESTION: Why we have to re-define proc segs struct while we have already defined it inside the kernel?}{2}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}QUESTION: Why root privilege (e.g. adding sudo before the cp command) is required to copy the header file to /usr/include?}{2}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}QUESTION: Why we must put -share and -fpic option into gcc command?}{2}{subsection.4.3}
+\contentsline {section}{\numberline {4}Wrapper}{3}{section.4}
+\contentsline {subsection}{\numberline {4.1}QUESTION: Why we have to re-define proc segs struct while we have already defined it inside the kernel?}{3}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}QUESTION: Why root privilege (e.g. adding sudo before the cp command) is required to copy the header file to /usr/include?}{3}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}QUESTION: Why we must put -share and -fpic option into gcc command?}{3}{subsection.4.3}

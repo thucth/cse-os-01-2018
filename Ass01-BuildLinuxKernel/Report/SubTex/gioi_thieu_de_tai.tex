@@ -16,27 +16,73 @@ kernel-package is utility for building Linux kernel related Debian packages. The
 
 Each system call is declared in one row with following information: number, ABI, name, entry point and compat entry point.
 
+\begin{itemize}
+	\item \textbf{<abi>}: Application Binary Interface, i386 for system 32-bit and
+\end{itemize}
+
 
 \subsection{QUESTION: What is the meaning of each line added in file include/linux/syscalls.h?}
 
+\begin{itemize}
+	\item struct proc\_segs;
+	
+	declare one struct in the header file that is used in function sys\_procsched.
+	
+	\item asmlinkage long sys\_procsched(int pid, struct proc\_segs * info);
+	
+	declares one asmlinkage function. The keyword asmlinkage tells compiler to look on the CPU stack for the function parameters, instead of registers. The interesting part is why this is necessary. System calls are services that userspace can call to request the kernel to perform something for them (and therefore execute in kernel space). These functions are quite strange that you cannot expect them to behave like normal functions, where parameters are typically passed by writing to the program stack, but instead they are written to registers. 
+\end{itemize}
+ 
 
 \section{Compiling Linux Kernel}
 
 \subsection{QUESTION: What is the meaning of these two stages, namely “make” and “make modules”?}
 
+\begin{itemize}
+	\item make: to compile the main kernel and create \textit{vmlinuz}.
+	\subitem + \textit{vmlinuz}: is the name of the Linux kernel executable. That is a compressed Linux kernel, and it is bootable (capable of loading the operating system into memory).
+	\item make modules: to compile the kernel modules.
+\end{itemize}
+
+
+
+
+
 
 \subsection{QUESTION: Why this program could indicate whether our system works or not?}
 
 
+Because we call the system call through library $ <sys/syscall.h> $, which calls  $ syscall ([ number\_32], [pid], info); $ with $ number\_32 $ is the number of procsched system call in the file $ syscall 32.tlb $.
+
+\noindent If our kernel not working, that means get fail after compiling or building kernel, the syscall with $ number\_32 $ is also not working.
+Opposite, the syscall will return params to $ info $ as our kernel implementation.
+
+\noindent Therefore, we can detect if our system works or not via the program.
 
 \section{Wrapper}
 
 \subsection{QUESTION: Why we have to re-define proc segs struct while we have already defined it inside the kernel?}
 
+The struct $ proc\_segs $ we have already defined is only used in the kernel (in kernelspace). We must declare again the struct $ proc\_segs $ as the utility module for user to use easier (in userspace).
+
+\noindent We can declare this struct is not similar to struct in kernel we defined. But we should use the returned params from syscall correctly with their meaning.
 
 
 \subsection{QUESTION: Why root privilege (e.g. adding sudo before the cp command) is required to copy the header file to /usr/include?}
 
+$ sudo $ (superuser do) is used for root account permission.
+
+\noindent $ /usr/ $ is owned by the root account so to write files in there you need to write them as root. Therefore, we should add sudo to do command as root account.
+
+Therefore, we must have $ sudo $ before copy file to $ /usr/ $.
 
 \subsection{QUESTION: Why we must put -share and -fpic option into gcc command?}
+The meaning each option gcc is:
+\begin{itemize}
+	\item -shared: to create a shared library.
+	\item -fpic:to generate position-independent code (PIC) suitable for use in a shared library, if supported for the target machine.
+\end{itemize}
 
+\noindent For more detail, see here: \href{https://www.cs.swarthmore.edu/~newhall/unixhelp/howto_C_libraries.html}{https://www.cs.swarthmore.edu/~newhall/unixhelp/howto\_C\_libraries.html}
+
+\noindent We are trying to create a Shared Object File (file .so - $ libprocsched.so $) that can be linked into other programs that use owr library. Therefore, we must add flag $ -shared $ to create file .so above. And we also add flag $ -fpic $ as the meaning of this option.
