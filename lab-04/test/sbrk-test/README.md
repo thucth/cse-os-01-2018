@@ -1,4 +1,4 @@
-## Bí ẩn của sbrk()???
+## Bí ẩn của sbrk()?
 
 #### 1. Giá trị sbrk(0) ban đầu khác biệt với các lần sau
 ```c
@@ -40,7 +40,7 @@ Kết quả:
 5. 0: 21041157
 ```
 + Nhận xét: Tại sao gọi `sbrk()` rồi (dù có comment lại dòng 0, 1 hoặc 2) mà dòng 1 vẫn khác như ví dụ 1?
-+ Giải thích: khác biệt ở chỗ gọi `printf()`, có `printf()` thì ok, không thì fail. Cái này hình như do `printf()` đã làm gì đó đến vùng heap nên đã khởi tạo program break cho procesc này. Phải kiểm tra lại ở ví dụ 3
++ Giải thích: khác biệt ở chỗ gọi `printf()`, có `printf()` thì ok, không thì fail. Cái này hình như do `printf()` đã làm gì đó đến vùng heap nên đã khởi tạo program break cho process này. Phải kiểm tra lại ở ví dụ 3
 
 
 #### 3. Thử `printf()` trước xem có khác biệt?
