@@ -1,5 +1,0 @@
-<root>
-    <assignment id="SUM2NUM" number_testcases="10"  time_limit_exceed="500"></assignment>
-	<assignment id="SUB2NUM" number_testcases="10"  time_limit_exceed="100"></assignment>
-	<assignment id="SORTINT" number_testcases="15"  time_limit_exceed="2000"></assignment>
-</root>
