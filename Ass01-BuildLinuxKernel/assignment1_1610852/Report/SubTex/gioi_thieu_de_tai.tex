@@ -6,7 +6,7 @@
 	\item Ở bước này, ta thiết lập máy ảo (ở đây sử dụng Virtual Box trên hệ điều hành Window 10) và tải file ảnh Ubuntu tại đường dẫn trong assignment.
 	\item Sau đó cài các các gói cần thiết khi mới sử dụng ubuntu bằng lệnh install gói build-essential.
 	\item Cài đặt gói kernel-package.
-	\item Tạo thư mục ~/kernelbuild cho việc chứa kernel.
+	\item Tạo thư mục \~/kernelbuild trong root cho việc chứa kernel.
 \end{itemize}
 
 
@@ -28,7 +28,11 @@ kerel-package là một gói tiện ích cho việc xây dụng 1 kernel trong l
 
 \vspace{0.2cm}
 
-========================
+Ta cần làm việc bên trong nhân Linux, tức ta cần thay đổi cách hoạt động của kerlen (cụ thể ta cần tạo thêm system call mới do ta tự định nghĩa), do đó ta cần biên dịch lại kernel trên hệ thống của ta. Do đó ta cần sử dụng kernel source, ở đây ta tải từ kernel.org.
+
+Kernel.org là điểm phân phối các mã nguồn cho các kernel linux (dựa trên hệ điều hành linux). Trang web là kho lưu trữ tất cả các phiên bản mã nguồn kernel có sẵn cho người dùng.
+
+Ta không nên sử dụng kernel hệ thống để thực hiện compile.
 
 
 \subsection{Bước 1.2: Configuration}
@@ -92,11 +96,11 @@ Mỗi system call đươc định nghĩa trong 1 hàng với các đối số th
 Trong đó mỗi đối số mang ý nghĩa:
 
 \begin{itemize}
-	\item \textbf{<number>}: Đây là số định danh riêng cho từng syscall ở mỗi loại máy 32-bit hoặc 64-bit
-	\item \textbf{<abi>}: Application Binary Interface, mang giá trị i386 cho hệ máy  32-bit và =========== cho hệ máy 64-bit
-	\item \textbf{<name>}: ============
-	\item \textbf{<entry point>}: ==============
-	\item \textbf{<compat entry point>}: =============
+	\item \textbf{<number>}: Đây là số định danh riêng cho từng syscall ở mỗi loại máy 32-bit hoặc 64-bit. Khi người dùng thực hiện lời gọi system call, người dùng cần cung cấp số chỉ mục này để hệ thống tìm đúng lời gọi tương ứng.
+	\item \textbf{<abi>}: Application Binary Interface, mang giá trị "i386" cho hệ máy  32-bit (trong file syscall\_32.tbl) và ("common", "64" hoặc "x32") cho hệ máy 64-bit (trong file syscall\_64.tbl)
+	\item \textbf{<name>}: Tên gọi của system call, ví dụ gọi fork, exit, read, write, getpid, mkdir, ...
+	\item \textbf{<entry point>}: điểm bắt đầu của lời gọi hàm thực thi tác vụ.
+	\item \textbf{<compat entry point>}: (chỉ có ở file syscall\_32.tbl, tức cho hệ máy 32-bit) điểm bắt đầu của lời gọi hàm thực thi tác vụ khi người dụng sử dụng loại máy 64-bit (compat ở đây là từ khóa cho biết sự tương thích với các hệ máy khác)
 \end{itemize}
 
 \vspace{0.3cm}

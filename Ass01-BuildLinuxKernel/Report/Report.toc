@@ -5,8 +5,8 @@
 \contentsline {subsection}{\numberline {2.1}B\IeC {\uhorn }\IeC {\'\ohorn }c 2.1: Kernel Module}{2}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}B\IeC {\uhorn }\IeC {\'\ohorn }c 2.2: Prototype}{3}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}B\IeC {\uhorn }\IeC {\'\ohorn }c 2.3: Implementation}{3}{subsection.2.3}
-\contentsline {section}{\numberline {3}B\IeC {\uhorn }\IeC {\'\ohorn }c 3: Compiling Linux Kernel}{3}{section.3}
-\contentsline {subsection}{\numberline {3.1}B\IeC {\uhorn }\IeC {\'\ohorn }c 3.1: Build the configured kernel}{3}{subsection.3.1}
+\contentsline {section}{\numberline {3}B\IeC {\uhorn }\IeC {\'\ohorn }c 3: Compiling Linux Kernel}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}B\IeC {\uhorn }\IeC {\'\ohorn }c 3.1: Build the configured kernel}{4}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}B\IeC {\uhorn }\IeC {\'\ohorn }c 3.2: Installing the new kernel}{4}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}B\IeC {\uhorn }\IeC {\'\ohorn }c 3.3: Testing}{4}{subsection.3.3}
 \contentsline {section}{\numberline {4}B\IeC {\uhorn }\IeC {\'\ohorn }c 4: Wrapper}{4}{section.4}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.20)  11 MAR 2018 17:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.20)  13 MAR 2018 14:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1939,11 +1939,7 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
 \c@subsubsubsection=\count292
- (./Report.aux
-
-LaTeX Warning: Label `' multiply defined.
-
-)
+ (./Report.aux)
 \openout1 = `Report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 162.
@@ -1963,7 +1959,8 @@ LaTeX Font Info:    ... okay on input line 162.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 162.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 162.
 
- (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 162.
@@ -2106,57 +2103,40 @@ LaTeX Font Info:    Try loading font information for TS1+cmss on input line 6.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-) [2]
+) [2] [3]
 
 LaTeX Font Warning: Font shape `T5/cmss/m/it' in size <10> not available
-(Font)              Font shape `T5/cmss/m/sl' tried instead on input line 135.
+(Font)              Font shape `T5/cmss/m/sl' tried instead on input line 139.
 
-[3]) [4]
-LaTeX Font Info:    Try loading font information for T5+cmtt on input line 189.
-
- (/usr/share/texlive/texmf-dist/tex/latex/vntex/t5cmtt.fd
-File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-
+) [4] 
 AED: lastpage setting LastPage
-[5pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has
- been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.198 \end{document}
-                    ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 198.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 198.
+[5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 208.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 208.
  (./Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 198.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 198.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 208.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 208.
 Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: 58A2D105A48D9F37A01259C4928CBE0D;2479.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 35681 strings out of 493029
- 646844 string characters out of 6136234
+ 35668 strings out of 493029
+ 646640 string characters out of 6136234
  720590 words of memory out of 5000000
- 38575 multiletter control sequences out of 15000+600000
- 18634 words of font info for 40 fonts, out of 8000000 for 9000
+ 38563 multiletter control sequences out of 15000+600000
+ 18323 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,25n,76p,10426b,442s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,26n,76p,10426b,448s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf
 /fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/vntex/vnr/vnss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/vntex/vnr
 /vnss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/vntex/vnr/vnss8.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/vntex/vnr/vnssbx10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/vntex/vnr/vnssi10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/vntex/vnr/vntt10.pfb>
-Output written on Report.pdf (6 pages, 170188 bytes).
+ve/texmf-dist/fonts/type1/vntex/vnr/vnssi10.pfb>
+Output written on Report.pdf (6 pages, 168142 bytes).
 PDF statistics:
- 146 PDF objects out of 1000 (max. 8388607)
- 128 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
+ 148 PDF objects out of 1000 (max. 8388607)
+ 131 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
  122 words of extra memory for PDF output out of 10000 (max. 10000000)
 
