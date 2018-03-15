@@ -1,2 +1,2 @@
 all:
-	gcc -o pi pi.c -lpthread -lm 
+	gcc -o pi pi.c -lpthread

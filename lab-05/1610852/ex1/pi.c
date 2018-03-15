@@ -1,12 +1,13 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
+// #include <math.h>
 
-#define MAX_THREAD 61028
+// #define MAX_THREAD 61028
 // #define MAX_THREAD 30000
 // #define MAX_THREAD 10000
 // #define MAX_THREAD 8192
+#define MAX_THREAD 10
 
 typedef struct {
     int id;
@@ -14,13 +15,14 @@ typedef struct {
     int count;   // OUT - count points in circle each thread
 } InfoThread;
 
+InfoThread ith[MAX_THREAD];
 
 int nThreads = MAX_THREAD;
 int nPoints;
 
 
-double my_rand() {
-    return -1.0 + (1.0 * rand() / RAND_MAX) * 2.0;
+float my_rand() {
+    return -1 + ((float) rand() / (float) RAND_MAX) * 2;
 }
 
 void *func_thread(void *arg) {
@@ -28,9 +30,9 @@ void *func_thread(void *arg) {
     // printf("Thread %d is created: nPoints = %d\n", ith->id, ith->nPoints);
 
     for (int i = 0; i < ith->nPoints; i++) {
-        double x = my_rand();
-        double y = my_rand();
-        ith->count += (sqrt(x * x + y * y) <= 1);
+        float x = my_rand();
+        float y = my_rand();
+        ith->count += (x * x + y * y <= 1);
     }
 
     // printf("Exit thread %d: count = %d\n", ith->id, ith->count);
@@ -39,33 +41,45 @@ void *func_thread(void *arg) {
 
 int main(int nargs, char *args[])
 {
-    srand(time(NULL));
+    // srand(time(NULL));
 
     // printf("nargs = %d\n", nargs);
     // printf("arg[1] = %s\n", args[1]);
+    
+    if (nargs < 2) {
+        printf("Require number points\n");
+        return 0;
+    }
 
     nPoints = atoi(args[1]);
     // printf("nPoints = %d\n", nPoints);
     // printf("===============================================\n");
 
-    pthread_t my_threads[MAX_THREAD];
-    InfoThread ith[MAX_THREAD];
+    if (nPoints < 0) {
+        printf("Number points < 0\n");
+        return 0;
+    }
 
+    pthread_t my_threads[MAX_THREAD];
+  
     // Change nThreads to test
     // nThreads = 1;
     // nThreads = 2;
     // nThreads = 4;
-    // nThreads = 8;
+    nThreads = 8;
     // nThreads = 16;
-    nThreads = (int) sqrt(nPoints);
+    // nThreads = 10;
+    // nThreads = 100;
+    // nThreads = (int) sqrt(nPoints);
 
     printf("nThreads = %d\n", nThreads);
 
+    int left = nPoints % nThreads;
     for (int i = 0; i < nThreads; i++) {
         ith[i].id = i;
         ith[i].count = 0;
-        ith[i].nPoints = nPoints / nThreads + (i < nPoints % nThreads);
-        pthread_create(&my_threads[i], NULL, &func_thread, &ith[i]);
+        ith[i].nPoints = nPoints / nThreads + (i < left);
+        pthread_create(&my_threads[i], NULL, func_thread, &ith[i]);
     }
 
     // wait for all thread is completed
@@ -83,9 +97,9 @@ int main(int nargs, char *args[])
 
     // printf("Points in circle = %d\n", cnt);
 
-    double pi = 4.0 * cnt / (double)nPoints;
+    float pi = 4 * (float) cnt / (float) nPoints;
 
-    printf("PI = %.9f\n", pi);
+    printf("PI = %.12f\n", pi);
 
     return 0;
 }
