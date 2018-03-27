@@ -16,9 +16,9 @@ pthread_spinlock_t slock;
 void *Sum(void *i)
 {
     long k = (long)i;
-    pthread_spin_lock(&slock);
+    // pthread_spin_lock(&slock);
     sum = sum + k;
-    pthread_spin_unlock(&slock);
+    // pthread_spin_unlock(&slock);
 }
 
 int main()
