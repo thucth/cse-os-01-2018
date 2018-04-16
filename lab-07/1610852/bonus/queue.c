@@ -23,6 +23,19 @@ struct pcb_t * de_queue(struct pqueue_t * q) {
 	// condition
 	
 	// YOUR CODE HERE
+	if (q->head) {
+		proc = q->head->data;
+		if (q->head->next) {
+			pthread_mutex_lock(&(q->lock));
+			q->head = q->head->next;
+			pthread_mutex_unlock(&(q->lock));
+		} else {
+			pthread_mutex_lock(&(q->lock));
+			q->head = q->tail = NULL;
+			pthread_mutex_unlock(&(q->lock));
+		}
+	}
+	// END TODO
 
 	return proc;
 }
@@ -33,7 +46,20 @@ void en_queue(struct pqueue_t * q, struct pcb_t * proc) {
 	// Remember to use 'lock' to avoid race condition
 	
 	// YOUR CODE HERE
-	
+	struct qitem_t * new_item = (struct qitem_t *)malloc(sizeof(struct qitem_t));
+	new_item->data = proc;
+
+	if (q->head) {
+		pthread_mutex_lock(&(q->lock));
+		q->tail->next = new_item;
+		q->tail = new_item;
+		pthread_mutex_unlock(&(q->lock));
+	} else {
+		pthread_mutex_lock(&(q->lock));
+		q->head = q->tail = new_item;
+		pthread_mutex_unlock(&(q->lock));
+	}
+	// END TODO
 }
 
 
