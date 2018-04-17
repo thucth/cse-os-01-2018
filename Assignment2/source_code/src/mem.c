@@ -112,7 +112,7 @@ static int translate(
 			addr_t p_index = page_table->table[i].p_index; // physical page index
 			// [p_address] = [segment] + [p_page] + [offset]
 			// [v_address] = [segment] + [v_page] + [offset]
-			physical_addr = (first_lv << (PAGE_LEN + OFFSET_LEN)) | (p_index << OFFSET_LEN) | (offset);
+			* physical_addr = (first_lv << (PAGE_LEN + OFFSET_LEN)) | (p_index << OFFSET_LEN) | (offset);
 			// End code
 			return 1;
 		}
@@ -210,6 +210,8 @@ addr_t alloc_mem(uint32_t size, struct pcb_t * proc) {
 
 		// assign list new pages to segment table of process
 		proc->seg_table->table[idx].pages = list_new_pages;
+		
+		// End code
 	}
 
 	pthread_mutex_unlock(&mem_lock);
@@ -217,15 +219,45 @@ addr_t alloc_mem(uint32_t size, struct pcb_t * proc) {
 }
 
 int free_mem(addr_t address, struct pcb_t * proc) {
-	/*TODO: Release memory region allocated by [proc]. The first byte of
-	 * this region is indicated by [address]. Task to do:
-	 * 	- Set flag [proc] of physical page use by the memory block
+	/**
+	 * TODO: Release memory region allocated by [proc]. 
+	 * The first byte of this region is indicated by [address]. 
+	 * Tasks to do:
+	 * 	+ Set flag [proc] of physical page use by the memory block
 	 * 	  back to zero to indicate that it is free.
-	 * 	- Remove unused entries in segment table and page tables of
+	 * 	+ Remove unused entries in segment table and page tables of
 	 * 	  the process [proc].
-	 * 	- Remember to use lock to protect the memory from other
-	 * 	  processes.  */
+	 * 	+ Remember to use lock to protect the memory from other
+	 * 	  processes.
+	 */
+	
+	pthread_mutex_lock(&mem_lock);
 
+	addr_t v_page_index = address;	// virtual
+	addr_t p_page_index = 0;		// physical
+	
+	// Find physical page in memory
+	if (!translate(v_page_index, &p_page_index, proc)) return 1;
+
+	// Clear physical page in memory
+	int i = p_page_index;
+	for (;;) {
+		_mem_stat[i].proc = 0;
+		if (_mem_stat[i].next == -1) break;
+		i++;
+	}
+
+	// find page table in segment table which is v_index
+	int page_size = proc->seg_table->size;
+	for (i = 0; i < page_size; i++) {
+		if (proc->seg_table->table[i].v_index == v_page_index) {
+			proc->seg_table->table[i] = proc->seg_table->table[page_size-1];
+			proc->seg_table->size--;
+			break;
+		}
+	}
+
+	pthread_mutex_unlock(&mem_lock);
 	// End code
 	return 0;
 }
