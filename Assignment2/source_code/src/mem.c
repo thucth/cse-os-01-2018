@@ -8,11 +8,12 @@
 static BYTE _ram[RAM_SIZE];
 
 static struct {
-	uint32_t proc;	// ID of process currently uses this page
-	int index;	// Index of the page in the list of pages allocated
-			// to the process.
-	int next;	// The next page in the list. -1 if it is the last
-			// page.
+	uint32_t proc; // ID of process currently uses this page
+	int index;
+	// Index of the page in the list of pages allocated to the process */
+	int next;
+	// The next page in the list.
+	// -1 if it is the last page
 } _mem_stat [NUM_PAGES];
 
 static pthread_mutex_t mem_lock;
@@ -38,33 +39,39 @@ static addr_t get_second_lv(addr_t addr) {
 	return (addr >> OFFSET_LEN) - (get_first_lv(addr) << PAGE_LEN);
 }
 
-/* Search for page table table from the a segment table */
+/* Search for page table from the a segment table */
 static struct page_table_t * get_page_table(
-		addr_t index, 	// Segment level index
-		struct seg_table_t * seg_table) { // first level table
+		addr_t index, // Segment level index
+		struct seg_table_t * seg_table // first level table
+) {
 	
 	/*
 	 * TODO: Given the Segment index [index], you must go through each
 	 * row of the segment table [seg_table] and check if the v_index
 	 * field of the row is equal to the index
-	 *
-	 * */
+	 */
 
 	int i;
 	for (i = 0; i < seg_table->size; i++) {
 		// Enter your code here
+
+		// End code
 	}
 	return NULL;
 
 }
 
-/* Translate virtual address to physical address. If [virtual_addr] is valid,
- * return 1 and write its physical counterpart to [physical_addr].
- * Otherwise, return 0 */
+/**
+ * Translate virtual address to physical address.
+ * If [virtual_addr] is valid, return 1 and 
+ * write its physical counterpart to [physical_addr].
+ * Otherwise, return 0 
+ */
 static int translate(
 		addr_t virtual_addr, 	// Given virtual address
 		addr_t * physical_addr, // Physical address to be returned
-		struct pcb_t * proc) {  // Process uses given virtual address
+		struct pcb_t * proc 	// Process uses given virtual address
+) {
 
 	/* Offset of the virtual address */
 	addr_t offset = get_offset(virtual_addr);
@@ -87,6 +94,8 @@ static int translate(
 			 * to [p_index] field of page_table->table[i] to 
 			 * produce the correct physical address and save it to
 			 * [*physical_addr]  */
+
+			// End code
 			return 1;
 		}
 	}
@@ -100,6 +109,8 @@ addr_t alloc_mem(uint32_t size, struct pcb_t * proc) {
 	 * process [proc] and save the address of the first
 	 * byte in the allocated memory region to [ret_mem].
 	 * */
+
+	// End code
 
 	uint32_t num_pages = (size % PAGE_SIZE) ? size / PAGE_SIZE :
 		size / PAGE_SIZE + 1; // Number of pages we will use
@@ -138,6 +149,8 @@ int free_mem(addr_t address, struct pcb_t * proc) {
 	 * 	  the process [proc].
 	 * 	- Remember to use lock to protect the memory from other
 	 * 	  processes.  */
+
+	// End code
 	return 0;
 }
 

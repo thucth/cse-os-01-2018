@@ -6,9 +6,18 @@
 #include <stdint.h>
 
 #define ADDRESS_SIZE	20
-#define OFFSET_LEN	10
-#define SEGMENT_LEN	5
-#define PAGE_LEN	5
+#define OFFSET_LEN		10
+#define SEGMENT_LEN		5
+#define PAGE_LEN		5
+/**
+ * Use 20 bit to represent the address.
+ * the first 5 bits for segment index, 
+ * the next 5 bits for page index, 
+ * the last 10 bits for offset
+ * 
+ * [address](20) = [segment](5) + [page](5) + [offset](10)
+ * 
+ */
 
 #define NUM_PAGES	(1 << (ADDRESS_SIZE - OFFSET_LEN))
 #define PAGE_SIZE	(1 << OFFSET_LEN)
@@ -16,6 +25,7 @@
 typedef char BYTE;
 typedef uint32_t addr_t;
 
+/** instructions opcode type */
 enum ins_opcode_t {
 	CALC,	// Just perform calculation, only use CPU
 	ALLOC,	// Allocate memory
@@ -27,9 +37,18 @@ enum ins_opcode_t {
 /* instructions executed by the CPU */
 struct inst_t {
 	enum ins_opcode_t opcode;
-	uint32_t arg_0; // Argument lists for instructions
+	// Argument lists for instructions
+	uint32_t arg_0; 
 	uint32_t arg_1;
 	uint32_t arg_2;
+	/**
+	 * Arguments for each opcode:
+	 * calc		
+	 * alloc	size 	reg
+	 * free		reg
+	 * read		source 	offset 	dest
+	 * write	data 	dest 	offset
+	 */
 };
 
 struct code_seg_t {
@@ -58,13 +77,17 @@ struct seg_table_t {
 
 /* PCB, describe information about a process */
 struct pcb_t {
-	uint32_t pid;	// PID
+	uint32_t pid;
 	uint32_t priority;
-	struct code_seg_t * code;	// Code segment
-	addr_t regs[10]; // Registers, store address of allocated regions
-	uint32_t pc; // Program pointer, point to the next instruction
-	struct seg_table_t * seg_table; // Page table
-	uint32_t bp;	// Break pointer
+	struct code_seg_t * code;
+	addr_t regs[10]; 
+	// Registers, store address of allocated regions
+	uint32_t pc; 
+	// Program counter, point to the next instruction
+	struct seg_table_t * seg_table; 
+	// Page table, used to translate virtual addresses to physical addresses
+	uint32_t bp;
+	// Break pointer, used to manage the heap segment.
 };
 
 #endif
