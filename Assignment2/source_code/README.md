@@ -8,6 +8,8 @@
 
 + inst_t (opcode, args[0,1,2])
 
++ segment => page => offset => cell
+
 ## OS Simulation
 
 + make all
