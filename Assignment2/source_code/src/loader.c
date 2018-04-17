@@ -34,7 +34,7 @@ static enum ins_opcode_t get_opcode(char * opt) {
 }
 
 /**
- * Read infomation of process from /input/proc/*
+ * Read infomation of process from /input/proc/
  */
 struct pcb_t * load(const char * path) {
 	/* Create new PCB for the new process */
