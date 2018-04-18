@@ -6,25 +6,26 @@ static int calc(struct pcb_t * proc) {
 	return ((unsigned long)proc & 0UL);
 }
 
+
 /* Allocate [size] memory for process [proc] on register [reg_index] */
 static int alloc(struct pcb_t * proc, uint32_t size, uint32_t reg_index) {
 	addr_t addr = alloc_mem(size, proc);
-	if (addr == 0) {
-		return 1;
-	}else{
-		// map value address for register on process
-		proc->regs[reg_index] = addr;
-		return 0;
-	}
+	if (addr == 0) return 1;
+	// map value address for register on process
+	proc->regs[reg_index] = addr;
+	return 0;
 }
+
 
 /* Deallocate memory at register [reg_index] of process [proc] */
 static int free_data(struct pcb_t * proc, uint32_t reg_index) {
 	return free_mem(proc->regs[reg_index], proc);
 }
 
+
 /* 
- * Read a byte at address which equal to value of register [source + offset]
+ * Read a byte at address which equal to value 
+ * of register [source + offset]
  * and save to register [destination]
  */
 static int read(
@@ -33,15 +34,14 @@ static int read(
 		uint32_t offset, // Source address = [source] + [offset]
 		uint32_t destination // Index of destination register
 ) { 
-	
 	BYTE data;
 	if (read_mem(proc->regs[source] + offset, proc,	&data)) {
 		proc->regs[destination] = data;
 		return 0;
-	}else{
-		return 1;
 	}
+	return 1;
 }
+
 
 /**
  * Write data to register
@@ -55,12 +55,14 @@ static int write(
 	return write_mem(proc->regs[destination] + offset, proc, data);
 }
 
+
+/* Run process for each query */
 int run(struct pcb_t * proc) {
 	/* Check if Program Counter point to the proper instruction */
 	if (proc->pc >= proc->code->size) {
 		return 1;
 	}
-	
+
 	struct inst_t ins = proc->code->text[proc->pc];
 	proc->pc++;
 	int stat = 1;
