@@ -215,8 +215,9 @@ void allocate_memory_available(int ret_mem, int num_pages, struct pcb_t * proc) 
 		int idx = v_page_table->size++;
 		v_page_table->table[idx].v_index = get_segment_page_bits(v_address);
 		
-		addr_t p_address = i << OFFSET_LEN; // physical address of this page
-		v_page_table->table[idx].p_index = get_segment_page_bits(p_address);
+		// addr_t p_address = i << OFFSET_LEN; // physical address of this page
+		// v_page_table->table[idx].p_index = get_segment_page_bits(p_address);
+		v_page_table->table[idx].p_index = i;
 
 		// printf("...v_index = %d\n", v_page_table->table[idx].v_index); flush;
 		// printf("...p_index = %d\n", v_page_table->table[idx].p_index); flush;
@@ -271,7 +272,8 @@ int free_mem(addr_t address, struct pcb_t * proc) {
 	 * TODO: Release memory region allocated by [proc]. 
 	 * The first byte of this region is indicated by [address]. 
 	 * Tasks to do:
-	 * 	+ Set flag [proc] of physical page use by the memory block back to zero to indicate that it is free.
+	 * 	+ Set flag [proc] of physical page use by the memory block 
+	 * 	+ back to zero to indicate that it is free.
 	 * 	+ Remove unused entries in segment table and page tables of the process [proc].
 	 * 	+ Remember to use lock to protect the memory from other processes.
 	 */

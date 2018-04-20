@@ -58,9 +58,9 @@ test_os:
 	@echo ----- OS TEST 0 ----------------------------------------------------
 	./os os_0
 	@echo NOTE: Read file output/os_0 to verify your result
-	@echo ----- OS TEST 1 ----------------------------------------------------
-	./os os_1
-	@echo NOTE: Read file output/os_1 to verify your result
+	# @echo ----- OS TEST 1 ----------------------------------------------------
+	# ./os os_1
+	# @echo NOTE: Read file output/os_1 to verify your result
 
 $(OBJ)/%.o: %.c ${HEADER}
 	$(MAKE) $(CFLAGS) $< -o $@

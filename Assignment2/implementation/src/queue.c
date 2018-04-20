@@ -10,13 +10,13 @@ void enqueue(struct queue_t * q, struct pcb_t * proc) {
 	/* TODO: put a new process to queue [q] */
 	if (q->size == MAX_QUEUE_SIZE) return;
 	q->proc[q->size++] = proc;
-	// End code
 }
 
 struct pcb_t * dequeue(struct queue_t * q) {
 	/* TODO: return a pcb whose prioprity is the highest
 	 * in the queue [q] and remember to remove it from q
 	 * */
+
 	if (q->size == 0) return NULL;
 
 	int i = 0, j;
@@ -28,7 +28,7 @@ struct pcb_t * dequeue(struct queue_t * q) {
 
 	struct pcb_t * res = q->proc[i];
 	q->proc[i] = q->proc[--q->size];
+
 	return res;
-	// End code
 }
 

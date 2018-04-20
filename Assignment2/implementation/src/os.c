@@ -17,7 +17,10 @@ static int done = 0;
 static struct ld_args{
 	char ** path;
 	unsigned long * start_time;
-} ld_processes;
+} 
+	ld_processes;
+
+
 int num_processes;
 
 struct cpu_args {
@@ -42,14 +45,14 @@ static void * cpu_routine(void * args) {
 			printf("\tCPU %d: Processed %2d has finished\n",
 				id ,proc->pid);
 			free(proc);
-			proc = get_proc();
+			proc = get_proc(); // get next process
 			time_left = 0;
 		}else if (time_left == 0) {
 			/* The process has done its job in current time slot */
 			printf("\tCPU %d: Put process %2d to run queue\n",
 				id, proc->pid);
 			put_proc(proc);
-			proc = get_proc();
+			proc = get_proc(); // get next process
 		}
 		
 		/* Recheck process status after loading new process */

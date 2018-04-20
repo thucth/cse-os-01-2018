@@ -1,3 +1,18 @@
+## Sync
+
+threads:
+
++ CPU [n]
++ loader ld
++ timer
++ 
+
+
+shares:
+
++ 
+
+
 ## Note
 
 + BYTE = char
