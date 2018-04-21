@@ -18,5 +18,3 @@ void put_proc(struct pcb_t * proc);
 void add_proc(struct pcb_t * proc);
 
 #endif
-
-

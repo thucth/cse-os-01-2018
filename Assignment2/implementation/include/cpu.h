@@ -1,4 +1,3 @@
-
 #ifndef CPU_H
 #define CPU_H
 
@@ -10,4 +9,3 @@
 int run(struct pcb_t * proc);
 
 #endif
-

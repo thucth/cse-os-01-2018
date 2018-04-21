@@ -27,20 +27,20 @@ struct pcb_t * get_proc(void) {
 	 * Remember to use lock to protect the queue.
 	 */
 
+	pthread_mutex_lock(&queue_lock);
 	if (empty(&ready_queue)) {
-		pthread_mutex_lock(&queue_lock);
 		// move all process is waiting in run_queue back to ready_queue
 		while (!empty(&run_queue)) {
 			enqueue(&ready_queue, dequeue(&run_queue));
 		}
-		pthread_mutex_unlock(&queue_lock);
 	}
 
 	if (!empty(&ready_queue)) {
-		pthread_mutex_lock(&queue_lock);
+		// pthread_mutex_lock(&queue_lock);
 		proc = dequeue(&ready_queue);
-		pthread_mutex_unlock(&queue_lock);
+		// pthread_mutex_unlock(&queue_lock);
 	}
+	pthread_mutex_unlock(&queue_lock);
 
 	return proc;
 }
@@ -56,5 +56,3 @@ void add_proc(struct pcb_t * proc) {
 	enqueue(&ready_queue, proc);
 	pthread_mutex_unlock(&queue_lock);
 }
-
-

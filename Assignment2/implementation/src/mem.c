@@ -159,21 +159,7 @@ int memmory_available_to_allocate(int num_pages, struct pcb_t * proc) {
 	if (cnt_pages < num_pages) return 0;
 
 	// Check virtual space
-	// addr_t current_bp = proc->bp;
-	// addr_t current_segment = get_first_lv(current_bp);
-	// struct page_table_t * page_table = get_page_table(current_segment, proc);
-	// int segment_available = proc->seg_table->size < max_segment_per_process;
-	// if (page_table) {
-	// 	int num_used_pages = page_table->size;
-	// 	int num_available_pages = max_pages_per_segment - num_used_pages;
-	// 	if (num_available_pages >= num_pages) return 1;
-	// 	if (!segment_available) return 0;
-	// 	// int new_segment = current_segment + 1;
-	// 	// proc->bp = new_segment << (OFFSET_LEN + PAGE_LEN);
-	// } else {
-	// 	if (segment_available) return 1;
-	// 	return 0;
-	// }
+	// TODO here man?
 
 	return 1;
 }
@@ -214,11 +200,7 @@ void allocate_memory_available(int ret_mem, int num_pages, struct pcb_t * proc) 
 
 		int idx = v_page_table->size++;
 		v_page_table->table[idx].v_index = get_segment_page_bits(v_address);
-		
-		// addr_t p_address = i << OFFSET_LEN; // physical address of this page
-		// v_page_table->table[idx].p_index = get_segment_page_bits(p_address);
-		v_page_table->table[idx].p_index = i;
-
+		v_page_table->table[idx].p_index = i; // i is 10 bit segment page
 		// printf("...v_index = %d\n", v_page_table->table[idx].v_index); flush;
 		// printf("...p_index = %d\n", v_page_table->table[idx].p_index); flush;
 
@@ -256,7 +238,6 @@ addr_t alloc_mem(uint32_t size, struct pcb_t * proc) {
 		// first byte of new memory required for process
 		proc->bp += num_pages * PAGE_SIZE;
 		// update break pointer for heap segment process
-
 		allocate_memory_available(ret_mem, num_pages, proc);
 		// End code
 	}
@@ -380,5 +361,3 @@ void dump(void) {
 	}
 	// puts("end dump");
 }
-
-

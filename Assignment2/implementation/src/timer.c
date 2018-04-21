@@ -1,5 +1,5 @@
-
 #include "timer.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -23,8 +23,8 @@ static void * timer_routine(void * args) {
 		printf("Time slot %3lu\n", current_time());
 		int fsh = 0;
 		int event = 0;
-		/* Wait for all devices have done the job in current
-		 * time slot */
+		
+		/* Wait for all devices have done the job in current time slot */
 		struct timer_id_container_t * temp;
 		for (temp = dev_list; temp != NULL; temp = temp->next) {
 			pthread_mutex_lock(&temp->id.event_lock);
@@ -41,8 +41,7 @@ static void * timer_routine(void * args) {
 			pthread_mutex_unlock(&temp->id.event_lock);
 		}
 
-		/* Increase the time slot */
-		_time++;
+		_time++; // increase time slot
 		
 		/* Let devices continue their job */
 		for (temp = dev_list; temp != NULL; temp = temp->next) {
@@ -93,28 +92,24 @@ void detach_event(struct timer_id_t * event) {
 }
 
 struct timer_id_t * attach_event() {
-	if (timer_started) {
-		return NULL;
-	}else{
-		struct timer_id_container_t * container =
-			(struct timer_id_container_t*)malloc(
-				sizeof(struct timer_id_container_t)		
-			);
-		container->id.done = 0;
-		container->id.fsh = 0;
-		pthread_cond_init(&container->id.event_cond, NULL);
-		pthread_mutex_init(&container->id.event_lock, NULL);
-		pthread_cond_init(&container->id.timer_cond, NULL);
-		pthread_mutex_init(&container->id.timer_lock, NULL);
-		if (dev_list == NULL) {
-			dev_list = container;
-			dev_list->next = NULL;
-		}else{
-			container->next = dev_list;
-			dev_list = container;
-		}
-		return &(container->id);
+	if (timer_started) return NULL;
+	struct timer_id_container_t * container = 
+		(struct timer_id_container_t*) malloc(sizeof(struct timer_id_container_t));
+
+	container->id.done = 0;
+	container->id.fsh = 0;
+	pthread_cond_init(&container->id.event_cond, NULL);
+	pthread_mutex_init(&container->id.event_lock, NULL);
+	pthread_cond_init(&container->id.timer_cond, NULL);
+	pthread_mutex_init(&container->id.timer_lock, NULL);
+	if (dev_list == NULL) {
+		dev_list = container;
+		dev_list->next = NULL;
+	} else {
+		container->next = dev_list;
+		dev_list = container;
 	}
+	return &(container->id);
 }
 
 void stop_timer() {
@@ -130,7 +125,3 @@ void stop_timer() {
 		free(temp);
 	}
 }
-
-
-
-

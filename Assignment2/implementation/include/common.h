@@ -9,6 +9,10 @@
 #define OFFSET_LEN		10
 #define SEGMENT_LEN		5
 #define PAGE_LEN		5
+
+#define NUM_PAGES	(1 << (ADDRESS_SIZE - OFFSET_LEN))
+#define PAGE_SIZE	(1 << OFFSET_LEN)
+
 /**
  * Use 20 bit to represent the address.
  * the first 5 bits for segment index, 
@@ -16,11 +20,7 @@
  * the last 10 bits for offset
  * 
  * [address](20) = [segment](5) + [page](5) + [offset](10)
- * 
  */
-
-#define NUM_PAGES	(1 << (ADDRESS_SIZE - OFFSET_LEN))
-#define PAGE_SIZE	(1 << OFFSET_LEN)
 
 typedef char BYTE;
 typedef uint32_t addr_t;
@@ -91,4 +91,3 @@ struct pcb_t {
 };
 
 #endif
-

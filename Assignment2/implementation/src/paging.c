@@ -1,4 +1,3 @@
-
 #include "mem.h"
 #include "cpu.h"
 #include "loader.h"
@@ -18,4 +17,3 @@ int main(int argc, char ** argv) {
 	dump();
 	return 0;
 }
-
