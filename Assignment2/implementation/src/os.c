@@ -46,13 +46,13 @@ static void * cpu_routine(void * args) {
 		} else if (proc->pc == proc->code->size) {
 			/* The porcess has finish it job */
 			printf("\tCPU %d: Processed %2d has finished\n", id, proc->pid);
-			free(proc); // no safe ?
+			free(proc);
 			proc = get_proc(); // get next process
 			time_left = 0;
 		} else if (time_left == 0) {
 			/* The process has done its job in current time slot */
 			printf("\tCPU %d: Put process %2d to run queue\n", id, proc->pid);
-			put_proc(proc); // no safe ?
+			put_proc(proc);
 			proc = get_proc(); // get next process
 		}
 		
@@ -72,7 +72,7 @@ static void * cpu_routine(void * args) {
 		}
 		
 		/* Run current process */
-		run(proc); // no safe ?
+		run(proc);
 		time_left--;
 		next_slot(timer_id);
 	}

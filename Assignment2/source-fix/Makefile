@@ -1,3 +1,4 @@
+
 INC = -Iinclude
 LIB = -lpthread
 
@@ -66,3 +67,6 @@ $(OBJ)/%.o: %.c ${HEADER}
 
 clean:
 	rm -f obj/*.o os sched mem
+
+
+
