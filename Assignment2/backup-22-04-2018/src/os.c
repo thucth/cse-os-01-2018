@@ -21,7 +21,7 @@ int num_processes;
 static struct loader_args_t {
 	char ** path; // path to input file for each process
 	ulong * start_time; // time process start
-}
+} 
 	loader_processes;
 
 // arguments in thread used for cpu routine
@@ -34,6 +34,7 @@ static void * cpu_routine(void * args) {
 	struct cpu_args_t * cpu_args = (struct cpu_args_t*) args;
 	struct timer_id_t * timer_id = cpu_args->timer_id;
 	int id = cpu_args->id;
+	// printf("CPU id = %d\n", id);
 
 	/* Check for new process in ready queue */
 	int time_left = 0;
@@ -84,6 +85,7 @@ static void * loader_routine(void * args) {
 	struct timer_id_t * timer_id = (struct timer_id_t*) args;
 	int i = 0;
 	while (i < num_processes) {
+		// printf("Loader: %d\n", i);
 		struct pcb_t * proc = load(loader_processes.path[i]);
 		while (current_time() < loader_processes.start_time[i]) {
 			next_slot(timer_id);
@@ -94,10 +96,12 @@ static void * loader_routine(void * args) {
 		free(loader_processes.path[i++]);
 		next_slot(timer_id);
 	}
+	// puts("Loader read OK");
 	free(loader_processes.path);
 	free(loader_processes.start_time);
 	done = 1;
 	detach_event(timer_id);
+	// puts("Loader finish");
 	pthread_exit(NULL);
 }
 
@@ -136,6 +140,15 @@ int main(int argc, char * argv[]) {
 	strcat(path, "input/");
 	strcat(path, argv[1]);
 	read_config(path);
+
+	// printf("Time slot = %d\n", time_slot);
+	// printf("Number cpu = %d\n", num_cpus);
+	// printf("Number process = %d\n", num_processes);
+	int w;
+	for (w = 0; w < num_processes; w++) {
+		printf("%lu: ", loader_processes.start_time[w]);
+		puts(loader_processes.path[w]);
+	}
 
 	pthread_t * cpu = (pthread_t*) malloc(num_cpus * sizeof(pthread_t));
 	struct cpu_args_t * cpu_args = 

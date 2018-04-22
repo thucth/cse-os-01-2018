@@ -59,8 +59,8 @@ struct code_seg_t {
 struct page_table_t {
 	/* A row in the page table of the second layer */
 	struct  {
-		addr_t v_index; // The index of virtual address,  [page] bits
-		addr_t p_index; // The index of physical address, [segment]+[page] bits
+		addr_t v_index; // The index of virtual address,  [page] or [segment]+[page] bits
+		addr_t p_index; // The index of physical address, [page] or [segment]+[page] bits
 	} table[1 << PAGE_LEN];
 	int size;
 };
