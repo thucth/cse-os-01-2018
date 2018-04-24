@@ -1,0 +1,123 @@
+
+\section{Memory Management}
+
+\subsection{Question - Segmentation with Paging}
+
+\vspace{0.5cm}
+
+\textbf{QUESTION}:What is the advantage and disadvantage of segmentation with paging?
+
+\vspace{0.5cm}
+
+\textbf{Ưu điểm của giải thuật}
+
+\begin{itemize}
+	\item Tiết kiệm bộ nhớ, sử dụng bộ nhớ hiệu quả.
+	\item Mang các ưu điểm của giải thuật phân trang:
+	\subitem Đơn giản việc cấp phát vùng nhớ.
+	\subitem Khắc phục được phân mảnh ngoại.
+	\item Giải quyết vấn đề phân mảnh ngoại của giải thuật phân đoạn bằng cách phân trang trong mỗi đoạn.
+\end{itemize}
+
+\vspace{0.2cm}
+
+\textbf{Nhược điểm của giải thuật}
+
+\begin{itemize}
+	\item Phân mảnh nội của giải thuật phân trang vẫn còn.
+\end{itemize}
+
+\vspace{0.2cm}
+
+\subsection{Result - Status of RAM}
+
+\vspace{0.5cm}
+
+\textbf{REQUIREMENT}: Show the status of RAM after each memory allocation and deallocation function call.
+
+\vspace{0.5cm}
+
+
+Dưới đây là kết quả của quá trình ghi log sau mỗi lệnh allocation và deallocation trong chương trình, cụ thể ghi lại trạng thái của RAM trong chương trình ở mỗi bước.
+
+
+\newpage
+\textbf{Test 0}:
+\lstinputlisting{files/mem0.log}
+
+\newpage
+\textbf{Test 1}:
+\lstinputlisting{files/mem1.log}
+
+
+
+
+\subsection{Implementation}
+\subsubsection{Tìm bảng phân trang từ segment}
+
+Trong assignment này, mỗi địa chỉ được biểu diễn bởi 20 bits, trong đó 5 bits đầu tiên là segment, 5 bits tiếp theo là page, và 10 bits cuối là offset.
+
+Chức năng này nhận vào 5 bits segment $ index $ và bảng phân đoạn $ seg\_table $, cần tìm ra bảng phân trang $ res $ của segment tương ứng trong bảng phân đoạn nói trên.
+
+Do bảng phân đoạn $ seg\_table $ là một danh sách gồm các phần tử $ u $ có cấu trúc $ (v\_index, page\_table\_t) $, trong đó $ v\_index $ là 5 bits segment của phần tử $ u $ và $  page\_table\_t $ là bảng phần trang tương ứng của segment đó. Vì vậy để tìm được $ res $, ta chỉ cần duyệt trên bảng phân đoạn này, phần tử $ u $ nào có $ v\_index $ bằng $ index $ cần tìm, ta trả về $ page\_table $ tương ứng.
+
+Dưới đây là phần hiện thực cho chức năng trên.
+
+\lstinputlisting{files/getpagetable.c}
+
+
+\subsubsection{Ánh xạ địa chỉ ảo thành địa chỉ vật lý}
+
+Do mỗi địa chỉ gồm 20 bits với cách tổ chức như nói ở trên, do đó để tạo được địa chỉ vật lý, ta lấy 10 bits đầu (segment và page) nối với 10 bits cuối (offset). Mỗi $ page\_table\_t $ lưu các phần tử có $ p\_index $ là 10 bits đầu đó. do đó để tạo được địa chỉ vật lý, ta chỉ cần dịch trái 10 bits đó đi 10  bits offset rồi or (|) hai chuỗi này lại.
+
+Dưới đây là phần hiện thực của chức năng trên.
+
+\lstinputlisting{files/addr.c}
+
+
+\newpage 
+\subsubsection{Cấp phát memory}
+
+\paragraph{Kiểm tra memory sẵn sàng}
+
+Bước này ta kiểm tra xem memory có sẵn sàng cả trên bộ nhớ vật lý và bộ nhớ luận lí hay không.
+
+Trên vùng vật lý, ta duyệt kiẻm tra số lượng trang còn trống, chưa được process nào sử dụng, nếu đủ số trang cần cấp phát thì vùng vật lý đã sẵn sàng. Ngoài ra để tối ưu thời gian tìm kiếm khi rơi vào trường hợp không đủ vùng nhớ, ta có thể tổ chức $ \_mem\_stat $ dưới dạng danh sách, trong đó có quản lý kích thước, vùng nhớ trống, ... để truy xuất các thông tin cần thiết nhanh chóng.
+
+Trên vùng nhớ luận lý, ta kiểm tra dựa trên break point của process, không vượt quá vùng nhớ cho phép.
+
+\lstinputlisting{files/memavail.c}
+
+\paragraph{Alloc memory}
+
+Các bước thực hiện:
+
+\begin{itemize}
+	\item Duyệt trên vùng nhớ vật lý, tìm các trang rỗi, gán trang này được process sử dụng.
+	\item Tạo biến $ last\_allocated\_page\_index $ để cập nhật giá trị $ next $ dễ dàng hơn.
+	\item Trên vùng nhớ luận lý, dựa trên địa chỉ cấp phát, tính từ địa chỉ bắt đầu và vị trí thứ tự trang cấp phát, ta tìm được các segment, page của nó. Từ đó cập nhật các bảng phân trang, phân đoạn tương ứng.
+\end{itemize}
+
+
+Dưới đây là phần hiện thực chi tiết.
+
+\lstinputlisting{files/memalloc.c}
+
+
+
+
+\subsubsection{Thu hồi memory}
+
+
+\paragraph{Thu hồi địa chỉ vật lý}
+Chuyển địa chỉ luận lý từ process thành  vật lý, sau đó dựa trên giá trị next của mem, ta cập nhật lại chuỗi địa chỉ tương ứng đó. 
+\lstinputlisting{files/freephys.c}
+
+\paragraph{Cập nhật địa chỉ luận lý}
+Dựa trên số trang đã xóa trên block của địa chỉ vật lý, ta tìm lần lượt các trang trên địa chỉ luận lý, dựa trên địa chỉ, ta tìm được segment, page tương ứng. Sau đó cập nhật lại bảng phân trang, sau quá trình cập nhật, nếu bảng trống thì xóa bảng này trong segment đi.
+
+\lstinputlisting{files/updv.c}
+
+\paragraph{Cập nhật break point}
+Chỉ thực hiện khi block cuối cùng trên địa chỉ luận lý được xóa, sau đó từ đó duyệt lần lượt ngược lại các trang, đến khi đến trang đang được sử dụng thì dừng.
+\lstinputlisting{files/updbp.c}

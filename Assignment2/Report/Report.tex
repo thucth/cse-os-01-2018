@@ -1,0 +1,199 @@
+\documentclass[a4paper]{article}
+%\documentclass[a4paper,fontsize=13pt]{scrartcl}
+
+\author{Huỳnh Sâm Hà - 1610852@hcmut.edu.vn}
+
+\usepackage{vntex}
+%\usepackage{helvet} %set font Helvetica
+%\usepackage{times} %set font Times New Roman
+\renewcommand{\familydefault}{\sfdefault} %set font Sans Serif
+
+%%%%% change language vietname - english
+%\usepackage[english,vietnam]{babel}
+%\usepackage[utf8]{inputenc}
+%\usepackage[francais]{babel}
+
+\usepackage{a4wide,amssymb,epsfig,latexsym,array,hhline,fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multicol,longtable,amscd}
+\usepackage{diagbox} %Make diagonal lines in tables
+\usepackage{booktabs}
+\usepackage{alltt}
+\usepackage[framemethod=tikz]{mdframed} % For highlighting paragraph backgrounds
+\usepackage{caption,subcaption}
+\usepackage{lastpage}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{graphicx} % Standard graphics package
+\usepackage{array}
+\usepackage{tabularx, caption}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{graphics}
+\usepackage[left=2.5cm,right=2.5cm,top=2cm,bottom=3cm]{geometry} % margin page
+\usepackage{a4wide,amssymb,epsfig,latexsym,array,hhline,fancyhdr}
+\usepackage[makeroom]{cancel}
+\usepackage{arydshln}
+\usepackage{textcomp}
+\usepackage{listings}
+\usepackage{listingsutf8}
+\usepackage{verbatim}
+\usepackage{setspace}
+
+\usepackage{epsfig}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\newcommand\HRule{\rule{\textwidth}{1pt}}
+\usetikzlibrary{arrows,snakes,backgrounds}
+\usepackage[unicode]{hyperref}
+\hypersetup{urlcolor=blue,linkcolor=black,citecolor=black,colorlinks=true} 
+%\usepackage{pstcol} % PSTricks with the standard color package
+
+\setlength\dashlinedash{1.5pt}
+\setlength\dashlinegap{4.5pt}
+\setlength\arrayrulewidth{0.2pt}
+
+% Typesetting Listings
+\usepackage{xcolor}
+\usepackage{color}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\definecolor{Darkgreen}{rgb}{0.1,0.6,0.1}
+\definecolor{whitesmoke}{rgb}{0.99, 0.99,0.99}
+
+\lstset{
+	backgroundcolor=\color{whitesmoke},
+	tabsize=2,
+	language=[GNU]C++,
+	basicstyle=\scriptsize,
+	upquote=true,
+	aboveskip={1.5\baselineskip},
+	columns=fixed,
+	showstringspaces=false,
+	extendedchars=false,
+	breaklines=true,
+	prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+	frame=single,
+	numbers=left,
+	showtabs=false,
+	showspaces=false,
+	showstringspaces=false,
+	identifierstyle=\ttfamily,	
+	keywordstyle=\color[rgb]{0,0,1},
+	commentstyle=\color[rgb]{0.026,0.112,0.095},
+	stringstyle=\color[rgb]{0.627,0.126,0.941},
+	numberstyle=\color[rgb]{0.205, 0.142, 0.73},
+	%\lstdefinestyle{C++}{language=C++,style=numbers}’.
+}
+\lstset{
+	backgroundcolor=\color{whitesmoke},
+	tabsize=2,
+	language=C++,
+	captionpos=b,
+	frame=lines,
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	breaklines=true,
+	showstringspaces=false,
+	basicstyle=\footnotesize,
+	%identifierstyle=\color{magenta},
+	keywordstyle=\color[rgb]{0,0,1},
+	commentstyle=\color{Darkgreen},
+	stringstyle=\color{red}
+}
+
+
+
+
+
+
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{
+	\begin{tabular}{rl}
+		\begin{tabular}{l}
+			\textbf{Ho Chi Minh University of Technology - 
+				Faculty of Computer Science \& Engineering}\\
+		\end{tabular} 	
+	\end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+\end{tabular}  }
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\footnotesize Operating Systems - Assignment 2 - Simple Operating System}
+\fancyfoot[R]{\footnotesize Trang {\thepage}/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.1pt}
+\renewcommand{\footrulewidth}{0.1pt}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\makeatletter
+\newcounter {subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection .\@alph\c@subsubsubsection}
+\newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+	{-3.25ex\@plus -1ex \@minus -.2ex}%
+	{1.5ex \@plus .2ex}%
+	{\normalfont\normalsize\bfseries}}
+\newcommand*\l@subsubsubsection{\@dottedtocline{3}{10.0em}{4.1em}}
+\newcommand*{\subsubsubsectionmark}[1]{}
+\makeatother
+
+\everymath{\color{blue}} %make in-line maths symbols blue to read/check easily
+
+\sloppy
+\captionsetup[figure]{labelfont={small,bf},textfont={small,it},belowskip=-1pt,aboveskip=-9pt}
+%space remove between caption, figure, and text
+\captionsetup[table]{labelfont={small,bf},textfont={small,it},belowskip=-1pt,aboveskip=7pt}
+\setlength{\floatsep}{5pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{5pt plus 2pt minus 2pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+\begin{document}
+
+\input{SubTex/p0_cover.tex}
+
+\newpage \thispagestyle{empty} \tableofcontents
+%\newpage \thispagestyle{empty} \listoftables
+%\newpage \thispagestyle{empty} \listoffigures
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set noindent all document
+\setlength\parindent{0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{SubTex/p1.tex}
+\include{SubTex/p2}                   
+\include{SubTex/p3}
+
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{section}{Tài liệu tham khảo}
+\begin{thebibliography}{99999}
+
+% \bibitem[medium.freecodecamp.org]{medium.freecodecamp.org} {
+%\href{https://medium.freecodecamp.org/building-and-installing-the-latest-linux-kernel-from-source-6d8df5345980}{How to build and install the latest Linux kernel from source?}}
+
+\end{thebibliography}
+
+
+
+ 
+\end{document}
+
