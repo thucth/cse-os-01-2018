@@ -42,7 +42,7 @@ struct page_table_t {
 	struct  {
 		addr_t v_index; // The index of virtual address
 		addr_t p_index; // The index of physical address
-	} table[1 << SEGMENT_LEN];
+	} table[1 << PAGE_LEN];
 	int size;
 };
 
@@ -52,7 +52,7 @@ struct seg_table_t {
 	struct {
 		addr_t v_index;	// Virtual index
 		struct page_table_t * pages;
-	} table[1 << PAGE_LEN];
+	} table[1 << SEGMENT_LEN];
 	int size;	// Number of row in the first layer
 };
 
