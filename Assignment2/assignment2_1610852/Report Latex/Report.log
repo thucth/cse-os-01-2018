@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.20)  24 APR 2018 21:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.20)  10 MAY 2018 11:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2098,45 +2098,50 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.172 \newpage
-               [1] (./SubTex/p1.tex
+l.170 \newpage
+               \thispagestyle{empty} \listoffigures [1] (./Report.lof)
+\tf@lof=\write6
+\openout6 = `Report.lof'.
+
+ [2]
+(./SubTex/p1.tex
 LaTeX Font Info:    Try loading font information for TS1+cmss on input line 16.
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-) [2]
-<Images/sched0.png, id=107, 1051.93pt x 140.525pt>
+)
+[3] <Images/sched0.png, id=116, 685.70464pt x 54.2025pt>
 File: Images/sched0.png Graphic file (type png)
- <use Images/sched0.png>
-Package pdftex.def Info: Images/sched0.png used on input line 63.
-(pdftex.def)             Requested size: 369.88582pt x 49.41176pt.
+
+<use Images/sched0.png>
+Package pdftex.def Info: Images/sched0.png used on input line 65.
+(pdftex.def)             Requested size: 369.88582pt x 29.2383pt.
 
 
 LaTeX Font Warning: Font shape `T5/cmss/m/it' in size <9> not available
-(Font)              Font shape `T5/cmss/m/sl' tried instead on input line 65.
+(Font)              Font shape `T5/cmss/m/sl' tried instead on input line 67.
 
-<Images/sched1.png, id=109, 1104.125pt x 190.7125pt>
+<Images/sched1.png, id=118, 718.39821pt x 113.56714pt>
 File: Images/sched1.png Graphic file (type png)
  <use Images/sched1.png>
-Package pdftex.def Info: Images/sched1.png used on input line 83.
-(pdftex.def)             Requested size: 426.79134pt x 73.7199pt.
+Package pdftex.def Info: Images/sched1.png used on input line 85.
+(pdftex.def)             Requested size: 426.79134pt x 67.47017pt.
 
 (./files/queue.c
 LaTeX Font Info:    Try loading font information for T5+cmtt on input line 1.
  (/usr/share/texlive/texmf-dist/tex/latex/vntex/t5cmtt.fd
 File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ))
-[3 <./Images/sched0.png> <./Images/sched1.png>] (./files/sched.c)) [4]
+[4 <./Images/sched0.png> <./Images/sched1.png>] (./files/sched.c)) [5]
 \openout2 = `SubTex/p2.aux'.
 
 
-(./SubTex/p2.tex [5
+(./SubTex/p2.tex [6
 
-] (./files/mem0.log) [6] (./files/mem1.log) [7]
-(./files/getpagetable.c) (./files/addr.c) [8] (./files/memavail.c)
-(./files/memalloc.c [9]) (./files/freephys.c) (./files/updv.c [10])
-(./files/updbp.c)) [11]
+] (./files/mem0.log) [7] (./files/mem1.log) [8]
+(./files/getpagetable.c) (./files/addr.c) [9] (./files/memavail.c)
+(./files/memalloc.c [10]) (./files/freephys.c) (./files/updv.c [11])
+(./files/updbp.c)) [12]
 \openout2 = `SubTex/p3.aux'.
 
  (./SubTex/p3.tex)
@@ -2145,7 +2150,7 @@ LaTeX Warning: Empty `thebibliography' environment on input line 193.
 
 
 AED: lastpage setting LastPage
-[12
+[13
 
 
 
@@ -2159,8 +2164,8 @@ Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: F2CDE44A9CEE435928AB169B284797A1;2596.
  ) 
 Here is how much of TeX's memory you used:
- 36426 strings out of 493029
- 656952 string characters out of 6136234
+ 36431 strings out of 493029
+ 656995 string characters out of 6136234
  1097662 words of memory out of 5000000
  38895 multiletter control sequences out of 15000+600000
  25118 words of font info for 58 fonts, out of 8000000 for 9000
@@ -2177,10 +2182,10 @@ texmf-dist/fonts/type1/vntex/vnr/vnss12.pfb></usr/share/texlive/texmf-dist/font
 s/type1/vntex/vnr/vnss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/vntex/vn
 r/vnssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/vntex/vnr/vnssi9.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/vntex/vnr/vntt8.pfb>
-Output written on Report.pdf (13 pages, 278120 bytes).
+Output written on Report.pdf (14 pages, 271468 bytes).
 PDF statistics:
- 649 PDF objects out of 1000 (max. 8388607)
- 611 compressed objects within 7 object streams
- 386 named destinations out of 1000 (max. 500000)
+ 657 PDF objects out of 1000 (max. 8388607)
+ 617 compressed objects within 7 object streams
+ 388 named destinations out of 1000 (max. 500000)
  148 words of extra memory for PDF output out of 10000 (max. 10000000)
 

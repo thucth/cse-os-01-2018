@@ -7,7 +7,7 @@ struct pcb_t * dequeue(struct queue_t * q) {
 	if (q->size == 0) return NULL;
 	int i = 0, j;
 	for (j = 1; j < q->size; j++) {
-		if (q->proc[j]->priority > q->proc[i]->priority) {
+		if (q->proc[j]->priority < q->proc[i]->priority) {
 			i = j;
 		}
 	}
