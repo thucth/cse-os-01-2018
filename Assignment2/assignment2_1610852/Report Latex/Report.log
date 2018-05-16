@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.20)  10 MAY 2018 11:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.20)  14 MAY 2018 20:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2068,7 +2068,7 @@ LaTeX Info: Redefining \nameref on input line 164.
 \openout4 = `Report.out'.
 
  (./SubTex/p0_cover.tex
-<Images/LogoBK.jpg, id=67, 654.445pt x 663.47874pt>
+<Images/LogoBK.jpg, id=71, 654.445pt x 663.47874pt>
 File: Images/LogoBK.jpg Graphic file (type jpg)
  <use Images/LogoBK.jpg>
 Package pdftex.def Info: Images/LogoBK.jpg used on input line 17.
@@ -2110,7 +2110,7 @@ LaTeX Font Info:    Try loading font information for TS1+cmss on input line 16.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-[3] <Images/sched0.png, id=116, 685.70464pt x 54.2025pt>
+[3] <Images/sched0.png, id=124, 685.70464pt x 54.2025pt>
 File: Images/sched0.png Graphic file (type png)
 
 <use Images/sched0.png>
@@ -2121,11 +2121,11 @@ Package pdftex.def Info: Images/sched0.png used on input line 65.
 LaTeX Font Warning: Font shape `T5/cmss/m/it' in size <9> not available
 (Font)              Font shape `T5/cmss/m/sl' tried instead on input line 67.
 
-<Images/sched1.png, id=118, 718.39821pt x 113.56714pt>
+<Images/sched1.png, id=126, 802.71321pt x 129.05357pt>
 File: Images/sched1.png Graphic file (type png)
  <use Images/sched1.png>
 Package pdftex.def Info: Images/sched1.png used on input line 85.
-(pdftex.def)             Requested size: 426.79134pt x 67.47017pt.
+(pdftex.def)             Requested size: 426.79134pt x 68.61664pt.
 
 (./files/queue.c
 LaTeX Font Info:    Try loading font information for T5+cmtt on input line 1.
@@ -2144,15 +2144,29 @@ File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 (./files/updbp.c)) [12]
 \openout2 = `SubTex/p3.aux'.
 
- (./SubTex/p3.tex)
+ (./SubTex/p3.tex
+<Images/all0.png, id=538, 848.31215pt x 84.315pt>
+File: Images/all0.png Graphic file (type png)
+ <use Images/all0.png>
+Package pdftex.def Info: Images/all0.png used on input line 14.
+(pdftex.def)             Requested size: 369.88582pt x 36.76419pt.
+
+<Images/all1.png, id=539, 1009.19893pt x 132.495pt>
+File: Images/all1.png Graphic file (type png)
+ <use Images/all1.png>
+Package pdftex.def Info: Images/all1.png used on input line 32.
+(pdftex.def)             Requested size: 426.79134pt x 56.03163pt.
+)
+[13
+
+
+ <./Images/all0.png> <./Images/all1.png>]
 
 LaTeX Warning: Empty `thebibliography' environment on input line 193.
 
 
 AED: lastpage setting LastPage
-[13
-
-
+[14
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 198.
@@ -2161,13 +2175,13 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 198.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 198.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 198.
 Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: F2CDE44A9CEE435928AB169B284797A1;2596.
+(rerunfilecheck)             Checksum: D3B447AF0534B49F291907A5155E9AE3;2744.
  ) 
 Here is how much of TeX's memory you used:
- 36431 strings out of 493029
- 656995 string characters out of 6136234
- 1097662 words of memory out of 5000000
- 38895 multiletter control sequences out of 15000+600000
+ 36448 strings out of 493029
+ 657248 string characters out of 6136234
+ 1096662 words of memory out of 5000000
+ 38906 multiletter control sequences out of 15000+600000
  25118 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,26n,76p,10426b,1109s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2182,10 +2196,10 @@ texmf-dist/fonts/type1/vntex/vnr/vnss12.pfb></usr/share/texlive/texmf-dist/font
 s/type1/vntex/vnr/vnss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/vntex/vn
 r/vnssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/vntex/vnr/vnssi9.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/vntex/vnr/vntt8.pfb>
-Output written on Report.pdf (14 pages, 271468 bytes).
+Output written on Report.pdf (15 pages, 312709 bytes).
 PDF statistics:
- 657 PDF objects out of 1000 (max. 8388607)
- 617 compressed objects within 7 object streams
- 388 named destinations out of 1000 (max. 500000)
- 148 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 676 PDF objects out of 1000 (max. 8388607)
+ 631 compressed objects within 7 object streams
+ 392 named destinations out of 1000 (max. 500000)
+ 166 words of extra memory for PDF output out of 10000 (max. 10000000)
 

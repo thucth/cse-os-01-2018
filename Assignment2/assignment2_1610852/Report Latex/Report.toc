@@ -17,4 +17,5 @@
 \contentsline {paragraph}{\numberline {2.3.4.1}Thu h\IeC {\`\ocircumflex }i \IeC {\dj }\IeC {\d i}a ch\IeC {\h i} v\IeC {\d \acircumflex }t l\IeC {\'y}}{11}{paragraph.2.3.4.1}
 \contentsline {paragraph}{\numberline {2.3.4.2}C\IeC {\d \acircumflex }p nh\IeC {\d \acircumflex }t \IeC {\dj }\IeC {\d i}a ch\IeC {\h i} lu\IeC {\d \acircumflex }n l\IeC {\'y}}{11}{paragraph.2.3.4.2}
 \contentsline {paragraph}{\numberline {2.3.4.3}C\IeC {\d \acircumflex }p nh\IeC {\d \acircumflex }t break point}{12}{paragraph.2.3.4.3}
-\contentsline {section}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u tham kh\IeC {\h a}o}{13}{lstnumber.-11.29}
+\contentsline {section}{\numberline {3}Put it all together}{13}{section.3}
+\contentsline {section}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u tham kh\IeC {\h a}o}{14}{figure.caption.8}

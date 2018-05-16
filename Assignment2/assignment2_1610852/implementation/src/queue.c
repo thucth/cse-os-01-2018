@@ -24,7 +24,10 @@ struct pcb_t * dequeue(struct queue_t * q) {
 		}
 	}
 	struct pcb_t * res = q->proc[i];
-	q->proc[i] = q->proc[--q->size];
+	for (j = i+1; j < q->size; j++) {
+		q->proc[j-1] = q->proc[j];
+	}
+	q->size--;
 
 	return res;
 }
