@@ -308,8 +308,7 @@ int free_mem(addr_t address, struct pcb_t * proc) {
 		}
 	}
 	// Update break pointer
-	addr_t v_segment_page = v_address >> OFFSET_LEN;
-	if (v_segment_page + num_pages * PAGE_SIZE == proc->bp) {
+	if (v_address + num_pages * PAGE_SIZE == proc->bp) {
 		free_mem_break_point(proc);
 	}
 

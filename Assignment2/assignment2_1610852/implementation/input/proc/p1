@@ -6,6 +6,6 @@ free 2
 alloc 3125 1
 calc
 write 10 0 2535
+write 20 5 2530
 alloc 3215 2
 free 1
-calc
